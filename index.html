@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCC 猫 Cat Craft Cos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lavender: #c9b8e8;
+      --lavender-light: #e8dff7;
+      --lavender-soft: #f3eeff;
+      --purple: #8b5cf6;
+      --purple-dark: #6d3fc8;
+      --purple-deep: #4c1d95;
+      --black-cat: #1a1a2e;
+      --white: #fff;
+      --gold: #f5c842;
+      --pink: #f4a7c3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #e8dff7 0%, #f3eeff 40%, #ddd4f5 80%, #c9b8e8 100%);
+      font-family: 'Mitr', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating stars background */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      animation: twinkle var(--dur, 3s) ease-in-out infinite;
+      opacity: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 0.7; transform: scale(1.2); }
+    }
+
+    /* Paw prints */
+    .paw {
+      position: absolute;
+      font-size: 1.1rem;
+      opacity: 0.12;
+      animation: float var(--dur, 6s) ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-10deg); }
+      50% { transform: translateY(-12px) rotate(10deg); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Card */
+    .card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(18px);
+      border-radius: 32px;
+      border: 1.5px solid rgba(201,184,232,0.6);
+      box-shadow: 0 8px 40px rgba(109,63,200,0.13), 0 2px 8px rgba(109,63,200,0.07);
+      width: 100%;
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Cat mascot area */
+    .mascot-wrap {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin-bottom: 4px;
+    }
+    .mascot-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c9b8e8 0%, #e0d4f7 60%, #f3eeff 100%);
+      border: 3px solid var(--lavender);
+      box-shadow: 0 4px 20px rgba(139,92,246,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5.5rem;
+      animation: bobcat 3.5s ease-in-out infinite;
+    }
+    @keyframes bobcat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    .mascot-badge {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      background: var(--purple);
+      color: white;
+      font-size: 0.55rem;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 8px rgba(109,63,200,0.3);
+    }
+
+    /* Title */
+    .shop-name {
+      margin-top: 14px;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .shop-name .ccc {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--purple-dark);
+      letter-spacing: 0.06em;
+    }
+    .shop-name .neko {
+      font-size: 1.6rem;
+      color: var(--purple);
+      margin-left: 4px;
+    }
+    .shop-name .sub {
+      display: block;
+      font-size: 0.85rem;
+      color: #9b82cc;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      margin-top: 2px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+      margin: 18px 0 20px;
+    }
+
+    /* Links */
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 20px;
+      border-radius: 18px;
+      text-decoration: none;
+      font-family: 'Mitr', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      border: 1.5px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .link-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.18);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .link-btn:hover { transform: translateY(-3px) scale(1.02); }
+    .link-btn:hover::before { opacity: 1; }
+    .link-btn:active { transform: scale(0.98); }
+
+    .link-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .link-text { flex: 1; }
+    .link-label { display: block; font-size: 0.72rem; opacity: 0.75; font-weight: 300; }
+    .link-handle { display: block; font-size: 0.93rem; font-weight: 500; }
+
+    .link-arrow {
+      font-size: 0.9rem;
+      opacity: 0.6;
+    }
+
+    /* Color themes per platform */
+    .btn-facebook {
+      background: linear-gradient(135deg, #5b6fd4 0%, #3b5998 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(59,89,152,0.25);
+    }
+    .btn-facebook:hover { box-shadow: 0 8px 24px rgba(59,89,152,0.35); }
+
+    .btn-instagram {
+      background: linear-gradient(135deg, #e17fbf 0%, #c75bb3 40%, #8b44c2 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(199,91,179,0.25);
+    }
+    .btn-instagram:hover { box-shadow: 0 8px 24px rgba(199,91,179,0.35); }
+
+    .btn-tiktok {
+      background: linear-gradient(135deg, #2d2d3a 0%, #1a1a2e 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(26,26,46,0.25);
+    }
+    .btn-tiktok:hover { box-shadow: 0 8px 24px rgba(26,26,46,0.35); }
+
+    .btn-shopee {
+      background: linear-gradient(135deg, #ff7043 0%, #e64a19 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(230,74,25,0.25);
+    }
+    .btn-shopee:hover { box-shadow: 0 8px 24px rgba(230,74,25,0.35); }
+
+    .btn-line {
+      background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+      color: white;
+      box-shadow: 0 4px 16px rgba(56,142,60,0.25);
+    }
+    .btn-line:hover { box-shadow: 0 8px 24px rgba(56,142,60,0.35); }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      color: #9b82cc;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+    .footer span {
+      font-size: 0.9rem;
+    }
+
+    /* Floating deco elements */
+    .deco {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      font-size: 1.6rem;
+      opacity: 0.13;
+      animation: floatDeco var(--dur,7s) ease-in-out infinite;
+    }
+    @keyframes floatDeco {
+      0%,100%{transform:translateY(0) rotate(var(--r0,0deg));}
+      50%{transform:translateY(-18px) rotate(var(--r1,10deg));}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Floating deco -->
+  <div class="deco" style="top:8%;left:5%;--dur:6s;--r0:-10deg;--r1:10deg;">⭐</div>
+  <div class="deco" style="top:15%;right:7%;--dur:8s;--r0:5deg;--r1:-8deg;">✨</div>
+  <div class="deco" style="bottom:18%;left:4%;--dur:7s;--r0:0deg;--r1:15deg;">🌸</div>
+  <div class="deco" style="bottom:10%;right:6%;--dur:9s;--r0:-5deg;--r1:5deg;">💜</div>
+  <div class="deco" style="top:40%;left:2%;--dur:5.5s;font-size:1rem;">🐾</div>
+  <div class="deco" style="top:60%;right:3%;--dur:6.5s;font-size:1rem;">🐾</div>
+
+  <div class="container">
+    <div class="card">
+
+      <!-- Mascot -->
+      <div class="mascot-wrap">
+        <div class="mascot-circle">🐱</div>
+        <div class="mascot-badge">✦ Handmade</div>
+      </div>
+
+      <!-- Name -->
+      <div class="shop-name">
+        <span class="ccc">CCC <span class="neko">猫</span></span>
+        <span class="sub">✦ Cat Craft Cos ✦</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Links -->
+      <div class="links">
+
+        <a href="https://www.facebook.com/share/1BoHyKFEvB/" target="_blank" class="link-btn btn-facebook">
+          <div class="link-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Facebook</span>
+            <span class="link-handle">CCC 猫 Cat Craft Cos</span>
+          </div>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://www.instagram.com/cat.craft.cos?igsh=ODd3MmR1Y2J6NGpt" target="_blank" class="link-btn btn-instagram">
+          <div class="link-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Instagram</span>
+            <span class="link-handle">@cat.craft.cos</span>
+          </div>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@cat.craft.cos?_r=1&_t=ZS-96W2TrClNyx" target="_blank" class="link-btn btn-tiktok">
+          <div class="link-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.56V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">TikTok</span>
+            <span class="link-handle">@cat.craft.cos</span>
+          </div>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://th.shp.ee/o7MhCYvw" target="_blank" class="link-btn btn-shopee">
+          <div class="link-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">Shopee</span>
+            <span class="link-handle">CCC 猫 Cat Craft Cos</span>
+          </div>
+          <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://line.me/R/ti/p/@496czvao" target="_blank" class="link-btn btn-line">
+          <div class="link-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          </div>
+          <div class="link-text">
+            <span class="link-label">LINE OA</span>
+            <span class="link-handle">@ccc.catcraftcos</span>
+          </div>
+          <span class="link-arrow">›</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span>🐾</span> handmade with love · ขอให้สนุกกับการคอสเพลย์นะ <span>🐾</span>
+    </div>
+  </div>
+
+  <script>
+    // Generate twinkling stars
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 30; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const size = Math.random() * 4 + 2;
+      s.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random()*100}%;
+        top:${Math.random()*100}%;
+        background:${Math.random()>0.5?'#c9b8e8':'#f5c842'};
+        --dur:${2+Math.random()*4}s;
+        animation-delay:${Math.random()*4}s;
+      `;
+      starsEl.appendChild(s);
+    }
+
+    // Paw prints
+    for (let i = 0; i < 8; i++) {
+      const p = document.createElement('div');
+      p.className = 'paw';
+      p.textContent = '🐾';
+      p.style.cssText = `
+        left:${Math.random()*90+5}%;
+        top:${Math.random()*90+5}%;
+        --dur:${5+Math.random()*5}s;
+        animation-delay:${Math.random()*4}s;
+      `;
+      starsEl.appendChild(p);
+    }
+  </script>
+</body>
+</html>
