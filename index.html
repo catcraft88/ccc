@@ -102,12 +102,12 @@
       border-radius: 50%;
       background: linear-gradient(135deg, #c9b8e8 0%, #e0d4f7 60%, #f3eeff 100%);
       border: 3px solid var(--lavender);
-      box-shadow: 0 4px 20px rgba(139,92,246,0.18);
+      box-shadow: 0 6px 24px rgba(139,92,246,0.25);
       display: flex;
       align-items: center;
       justify-content: center;
       animation: bobcat 3.5s ease-in-out infinite;
-      overflow: hidden; /* บังคับตัดรูปโลโก้ให้เป็นวงกลมพอดี */
+      overflow: hidden;
     }
     @keyframes bobcat {
       0%, 100% { transform: translateY(0); }
@@ -187,7 +187,7 @@
       font-family: 'Mitr', sans-serif;
       font-size: 0.92rem;
       font-weight: 500;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border: 1.5px solid transparent;
       position: relative;
       overflow: hidden;
@@ -196,11 +196,13 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.15);
       opacity: 0;
       transition: opacity 0.2s;
     }
-    .link-btn:hover { transform: translateY(-3px) scale(1.02); }
+    .link-btn:hover { 
+      transform: translateY(-4px) scale(1.02); 
+    }
     .link-btn:hover::before { opacity: 1; }
     .link-btn:active { transform: scale(0.98); }
 
@@ -213,53 +215,57 @@
       justify-content: center;
       flex-shrink: 0;
       font-size: 1.2rem;
-      background: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.25);
     }
 
     .link-text { flex: 1; }
-    .link-label { display: block; font-size: 0.72rem; opacity: 0.75; font-weight: 300; }
+    .link-label { display: block; font-size: 0.72rem; opacity: 0.85; font-weight: 300; }
     .link-handle { display: block; font-size: 0.93rem; font-weight: 500; }
 
     .link-arrow {
       font-size: 0.9rem;
-      opacity: 0.6;
+      opacity: 0.7;
+      transition: transform 0.2s;
+    }
+    .link-btn:hover .link-arrow {
+      transform: translateX(2px);
     }
 
-    /* Color themes per platform */
+    /* Cohesive Magic Pastel Colors */
     .btn-facebook {
-      background: linear-gradient(135deg, #5b6fd4 0%, #3b5998 100%);
+      background: linear-gradient(135deg, #7184e6 0%, #5267c4 100%);
       color: white;
-      box-shadow: 0 4px 16px rgba(59,89,152,0.25);
+      box-shadow: 0 4px 14px rgba(82,103,196,0.2);
     }
-    .btn-facebook:hover { box-shadow: 0 8px 24px rgba(59,89,152,0.35); }
+    .btn-facebook:hover { box-shadow: 0 8px 24px rgba(82,103,196,0.45); }
 
     .btn-instagram {
-      background: linear-gradient(135deg, #e17fbf 0%, #c75bb3 40%, #8b44c2 100%);
+      background: linear-gradient(135deg, #f095be 0%, #b850a5 100%);
       color: white;
-      box-shadow: 0 4px 16px rgba(199,91,179,0.25);
+      box-shadow: 0 4px 14px rgba(184,80,165,0.2);
     }
-    .btn-instagram:hover { box-shadow: 0 8px 24px rgba(199,91,179,0.35); }
+    .btn-instagram:hover { box-shadow: 0 8px 24px rgba(184,80,165,0.45); }
 
     .btn-tiktok {
-      background: linear-gradient(135deg, #2d2d3a 0%, #1a1a2e 100%);
+      background: linear-gradient(135deg, #373747 0%, #1e1e30 100%);
       color: white;
-      box-shadow: 0 4px 16px rgba(26,26,46,0.25);
+      box-shadow: 0 4px 14px rgba(30,30,48,0.2);
     }
-    .btn-tiktok:hover { box-shadow: 0 8px 24px rgba(26,26,46,0.35); }
+    .btn-tiktok:hover { box-shadow: 0 8px 24px rgba(30,30,48,0.45); }
 
     .btn-shopee {
-      background: linear-gradient(135deg, #ff7043 0%, #e64a19 100%);
+      background: linear-gradient(135deg, #ffa085 0%, #e05e38 100%);
       color: white;
-      box-shadow: 0 4px 16px rgba(230,74,25,0.25);
+      box-shadow: 0 4px 14px rgba(224,94,56,0.2);
     }
-    .btn-shopee:hover { box-shadow: 0 8px 24px rgba(230,74,25,0.35); }
+    .btn-shopee:hover { box-shadow: 0 8px 24px rgba(224,94,56,0.45); }
 
     .btn-line {
-      background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+      background: linear-gradient(135deg, #74c478 0%, #449e48 100%);
       color: white;
-      box-shadow: 0 4px 16px rgba(56,142,60,0.25);
+      box-shadow: 0 4px 14px rgba(68,158,72,0.2);
     }
-    .btn-line:hover { box-shadow: 0 8px 24px rgba(56,142,60,0.35); }
+    .btn-line:hover { box-shadow: 0 8px 24px rgba(68,158,72,0.45); }
 
     /* Footer */
     .footer {
