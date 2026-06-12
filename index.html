@@ -4272,6 +4272,25 @@
             color: rgba(137,118,210,0.86) !important;
         }
 
+        /* v35: คืนสีชมพูให้การ์ด Private Print บนหน้าแรก (โดน override ของ v34 ทับ) */
+        body:not(.dark-theme) .home-product-grid .card.secret-card {
+            border-color: #ffd1dc !important;
+            background: #fffafb !important;
+        }
+        body:not(.dark-theme) .home-product-grid .card.secret-card h3 {
+            color: var(--accent) !important;
+        }
+        body:not(.dark-theme) .home-product-grid .card.secret-card .secret-thumb {
+            background: var(--accent-light) !important;
+            color: var(--accent) !important;
+            border-color: #ffb6c1 !important;
+        }
+        body.dark-theme .home-product-grid .card.secret-card .secret-thumb {
+            background: rgba(255, 157, 177, 0.10) !important;
+            border-color: rgba(255, 157, 177, 0.42) !important;
+            color: #ffb3c2 !important;
+        }
+
         body.dark-theme .v27-trust-card {
             background: rgba(255,255,255,0.052) !important;
             border-color: rgba(255,255,255,0.10) !important;
@@ -5017,7 +5036,7 @@
                             <button type="button" onclick="showPage('photocard')" data-target-page="photocard">Photo Card | โฟโต้การ์ด</button>
                             <button type="button" onclick="showPage('namecard')" data-target-page="namecard">Name Card | นามบัตร</button>
                             <button type="button" onclick="showPage('pvc')" data-target-page="pvc">PVC Card | PVC การ์ด</button>
-                            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Secret Print 18+ | งานพิมพ์ส่วนตัว</button>
+                            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Private Print | งานพิมพ์ส่วนตัว</button>
                         </div>
                         <div class="product-menu-section">
                             <div class="product-menu-title">Goods</div>
@@ -5109,8 +5128,8 @@
                 </a>
                 <a onclick="showPage('secret18')" class="card secret-card" style="border-color: var(--accent-light); background: #fffcfc;">
                     <div class="img-placeholder secret-thumb" data-image="assets/images/home-secret-print.webp" data-video="assets/videos/home-secret-print.mp4" onclick="openLightbox(this, event)" style="background: var(--accent-light); color: var(--accent); border-color: #ffb6c1;"><br>[ รูป 18+ เซนเซอร์ ]</div>
-                    <h3 style="color: var(--accent);">Secret Print</h3>
-                    <p>งานส่วนตัวทักแชท</p>
+                    <h3 style="color: var(--accent);">Private Print</h3>
+                    <p>งานพิมพ์ส่วนตัว</p>
                 </a>
             </div>
 
@@ -5485,7 +5504,7 @@
 
 
         <div id="secret18" class="page-section">
-            <h1 class="page-title bilingual-title secret-title"><span class="title-en">Secret Print 18+</span><span class="title-th">งานพิมพ์ส่วนตัว</span></h1>
+            <h1 class="page-title bilingual-title secret-title"><span class="title-en">Private Print</span><span class="title-th">งานพิมพ์ส่วนตัว</span></h1>
             <div class="content-box" style="border: 2px solid var(--accent-light); background: #fffafb;">
                 <div class="img-placeholder" data-image="assets/images/secret-print-main.webp" data-video="assets/videos/secret-print-main.mp4" onclick="openLightbox(this, event)" style="background: var(--accent-light); color: var(--accent); border-color: #ffb6c1; height: 200px;">[ รูปตัวอย่างแบบเซนเซอร์ ]</div>
                 <h2 style="color: var(--accent);">ส่งไฟล์ส่วนตัวทางแชทโดยตรง</h2>
@@ -5656,7 +5675,7 @@
                 </div>
             </div>
             <div class="content-box secret-direct-box" style="margin-top: var(--gap-section);">
-                <h2 style="color:var(--accent);">Secret Print 18+<br><span style="font-size:var(--fs-xl); color:var(--text-main);">ส่งหาแม่ค้าโดยตรง</span></h2>
+                <h2 style="color:var(--accent);">Private Print | งานพิมพ์ส่วนตัว<br><span style="font-size:var(--fs-xl); color:var(--text-main);">ส่งหาแม่ค้าโดยตรง</span></h2>
                 <p style="color:var(--text-muted);">สำหรับงานพิมพ์ส่วนตัว / 18+ หลังคัดลอกรายการสั่งซื้อแล้ว สามารถส่งข้อความและไฟล์งานให้แม่ค้าโดยตรงทางแชทได้เลยค่ะ</p>
                 <a href="https://www.facebook.com/yoshinohoshiaki" target="_blank" rel="noopener noreferrer" class="secret-direct-btn">ส่งให้แม่ค้าโดยตรง</a>
             </div>
@@ -5856,7 +5875,7 @@
             <button type="button" onclick="showPage('photocard')" data-target-page="photocard">Photo Card | โฟโต้การ์ด</button>
             <button type="button" onclick="showPage('namecard')" data-target-page="namecard">Name Card | นามบัตร</button>
             <button type="button" onclick="showPage('pvc')" data-target-page="pvc">PVC Card | PVC การ์ด</button>
-            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Secret Print 18+ | งานพิมพ์ส่วนตัว</button>
+            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Private Print | งานพิมพ์ส่วนตัว</button>
         </div>
         <div class="mobile-product-section">
             <div class="mobile-product-title">Goods</div>
@@ -7812,7 +7831,7 @@
         { title: 'PVC Card', sub: 'PVC การ์ด', page: 'pvc', mark: '▣', keys: ['pvc','pvc card','การ์ด pvc','บัตร pvc','พลาสติก'] },
         { title: 'Sticker', sub: 'สติ๊กเกอร์ / งานไดคัท', page: 'sticker', mark: '♡', keys: ['sticker','สติ๊กเกอร์','สติกเกอร์','ไดคัท','die cut','ฉลาก','ติดกล่อง'] },
         { title: 'Keychain', sub: 'พวงกุญแจ', page: 'keychain', mark: '◇', keys: ['keychain','พวงกุญแจ','พวง','อะคริลิค','acrylic'] },
-        { title: 'Secret Print', sub: 'งานพิมพ์ส่วนตัว 18+', page: 'secret18', mark: '♡', keys: ['secret','18+','งานส่วนตัว','ส่วนตัว','private','ลับ'] },
+        { title: 'Private Print', sub: 'งานพิมพ์ส่วนตัว', page: 'secret18', mark: '♡', keys: ['secret','18+','งานส่วนตัว','ส่วนตัว','private','ลับ'] },
         { title: 'วิธีสั่งซื้อ', sub: 'เพิ่มสินค้า กรอกข้อมูล และคัดลอกออเดอร์', page: 'order', mark: '✓', keys: ['สั่งซื้อ','order','ออเดอร์','วิธีสั่ง','สรุปยอด','ตะกร้า','cart','โอน','ชำระเงิน'] },
         { title: 'ค่าส่ง / ระยะเวลาผลิต', sub: 'ดูข้อมูลจัดส่งและคำถามที่พบบ่อย', page: 'faq', mark: 'i', keys: ['ค่าส่ง','ส่ง','จัดส่ง','ems','ไปรษณีย์','กี่วัน','ระยะเวลา','ผลิต','รอกี่วัน','ส่งของ','shipping'] },
         { title: 'ติดต่อร้าน', sub: 'LINE OA / Facebook / ช่องทางติดต่อทั้งหมด', page: 'contact', mark: '✉', keys: ['ติดต่อ','contact','line','ไลน์','facebook','เฟส','เพจ','ทัก','สอบถาม','ร้าน','แชท'] },
