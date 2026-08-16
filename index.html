@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCC 猫 | Cat Craft Cos — Custom Print &amp; Craft Goods for Cosplay Lovers</title>
-    <meta name="ccc-version" content="v46-order-send-button-fix">
-    <meta name="description" content="CCC Cat Craft Cos รับผลิต Temporary Tattoo, Photo Print, Photo Card, Name Card, PVC Card, Sticker และ Keychain สำหรับชาวคอสเพลย์และสายอาร์ต งานพิมพ์และงานคราฟท์โทนพาสเทล ดูแลไฟล์ก่อนผลิต">
+    <meta name="ccc-version" content="v48-ui-simplify">
+    <meta name="description" content="CCC Cat Craft Cos รับผลิต Temporary Tattoo, Photo Print, Photo Card, Name Card, PVC Card, Sticker, Acrylic Keychain, Mini CD Keychain และ Round Badge สำหรับชาวคอสเพลย์และสายอาร์ต">
     <meta name="theme-color" content="#a794e6" id="themeColorMeta">
 
     <meta property="og:type" content="website">
@@ -25,7 +25,7 @@
       "@context": "https://schema.org",
       "@type": "Store",
       "name": "CCC 猫 Cat Craft Cos",
-      "description": "ร้านงานพิมพ์และงานคราฟท์สำหรับชาวคอสเพลย์ รับผลิต Temporary Tattoo, Polaroid, Photo Print, Photo Card, Name Card, PVC Card, Sticker และ Keychain",
+      "description": "ร้านงานพิมพ์และงานคราฟท์สำหรับชาวคอสเพลย์ รับผลิต Temporary Tattoo, Polaroid, Photo Print, Photo Card, Name Card, PVC Card, Sticker, Acrylic Keychain, Mini CD Keychain และ Round Badge",
       "image": "https://ccc-craft.com/logo.png",
       "url": "https://ccc-craft.com/",
       "priceRange": "฿฿",
@@ -39,6 +39,9 @@
         { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Temporary Tattoo — แทททูลอกลายน้ำ" } },
         { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Photo Card — โฟโต้การ์ด" } },
         { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Photo Print — พิมพ์รูป" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Acrylic Keychain — พวงกุญแจอะคริลิค" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Mini CD Keychain — พวงกุญแจซีดีจิ๋ว" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Round Badge — เข็มกลัดวงกลม" } },
         { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Sticker — สติ๊กเกอร์" } }
       ]
     }
@@ -2723,6 +2726,35 @@
             color: var(--primary);
             font-weight: 900;
         }
+        .order-payment-flow {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 12px;
+        }
+        .order-flow-group {
+            border: 1px solid var(--glass-border);
+            border-radius: var(--r-md);
+            background: var(--bg-color);
+            padding: 16px 18px;
+        }
+        .order-flow-group h3 {
+            margin: 0 0 9px;
+            color: var(--primary);
+            font-size: var(--fs-lg);
+        }
+        .order-flow-list {
+            margin: 0;
+            padding-left: 1.4em;
+            display: grid;
+            gap: 7px;
+        }
+        .order-flow-list li {
+            padding-left: 4px;
+            color: var(--text-main);
+            line-height: 1.65;
+            font-size: var(--fs-md);
+        }
         @media (max-width: 767px) {
             .order-step-box { margin-top: -4px; padding: 11px 10px 10px; border-radius: var(--r-md); }
             .order-step-list { max-width: 100%; }
@@ -2730,6 +2762,7 @@
             .order-step-dot { width: 25px; height: 25px; font-size: var(--fs-sm); }
             .order-step-label { font-size: 10px; margin-top: 4px; letter-spacing: -0.1px; }
             .order-step-note { font-size: var(--fs-xs); margin-top: 7px; line-height: 1.5; }
+            .order-payment-flow { grid-template-columns: 1fr; }
         }
 
         .address-autocomplete-field {
@@ -2937,12 +2970,6 @@
         body.dark-theme .opt-thumb::before {
             border-left-color: rgba(216,208,255,0.78);
             filter: drop-shadow(0 2px 3px rgba(0,0,0,0.22));
-        }
-
-        .lightbox-video {
-            display: none;
-            background: #111;
-            object-fit: contain;
         }
 
         .lightbox-content,
@@ -4304,6 +4331,23 @@
             color: rgba(137,118,210,0.86) !important;
         }
 
+        /* v47: Private Print เป็นการ์ดพิเศษเต็มความกว้างและอยู่ท้ายกริดเสมอ */
+        .home-product-grid .home-private-card {
+            grid-column: 1 / -1;
+            order: 999;
+            display: grid;
+            grid-template-columns: minmax(180px, 34%) 1fr;
+            align-items: center;
+            column-gap: 18px;
+            text-align: left;
+        }
+
+        .home-product-grid .home-private-card .img-placeholder {
+            grid-row: 1 / span 2;
+            width: 100%;
+            margin-bottom: 0 !important;
+        }
+
         /* v35: คืนสีชมพูให้การ์ด Private Print บนหน้าแรก (โดน override ของ v34 ทับ) */
         body:not(.dark-theme) .home-product-grid .card.secret-card {
             border-color: #ffd1dc !important;
@@ -4639,6 +4683,16 @@
             .home-product-grid .card p {
                 font-size: 10.4px !important;
                 line-height: 1.25 !important;
+            }
+
+            .home-product-grid .home-private-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .home-product-grid .home-private-card .img-placeholder {
+                grid-row: auto;
+                margin-bottom: 8px !important;
             }
 
             .v27-review-title {
@@ -5597,6 +5651,110 @@
             .ccc-review-meta strong { font-size: var(--fs-sm); }
         }
 
+
+
+        /* V48 — simplify navigation cues and duplicate information */
+        /* Homepage product cards navigate directly; do not show a zoom affordance. */
+        .home-product-grid .img-placeholder,
+        .home-product-grid .img-placeholder:hover {
+            cursor: pointer !important;
+        }
+        .home-product-grid .img-placeholder::after,
+        .home-product-grid .img-placeholder:hover::after {
+            content: none !important;
+            display: none !important;
+        }
+
+        /* Product option thumbnails are still image previews, but there is no video content now. */
+        .opt-thumb::before,
+        .opt-thumb:hover::before {
+            content: none !important;
+            display: none !important;
+        }
+
+        /* Homepage review cards: compact magnifying-glass icon at the lower-right. */
+        .ccc-review-stack {
+            top: auto !important;
+            right: 9px !important;
+            bottom: 9px !important;
+            min-width: 28px !important;
+            width: 28px !important;
+            height: 28px !important;
+            padding: 0 !important;
+            color: rgba(138,118,210,0.86) !important;
+            background: rgba(255,255,255,0.70) !important;
+            border-color: rgba(167,148,230,0.16) !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+        }
+        .ccc-review-stack::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            width: 9px;
+            height: 9px;
+            box-sizing: border-box;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+        }
+        .ccc-review-stack::after {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 16px;
+            width: 6px;
+            height: 2px;
+            border-radius: var(--r-pill);
+            background: currentColor;
+            transform: rotate(45deg);
+            transform-origin: left center;
+        }
+        body.dark-theme .ccc-review-stack {
+            color: rgba(216,208,255,0.86) !important;
+            background: rgba(35,31,55,0.58) !important;
+            border-color: rgba(255,255,255,0.10) !important;
+        }
+
+        /* Acrylic keychain order selector: 10 choices in an even 5 × 2 grid. */
+        .keychain-choice-section .order-choice-grid {
+            display: grid !important;
+            grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+            gap: 8px !important;
+        }
+        .keychain-choice-section .order-choice-btn {
+            width: 100% !important;
+            min-width: 0 !important;
+            min-height: 48px;
+            padding: 8px 5px !important;
+            border-radius: var(--r-md) !important;
+            text-align: center;
+            justify-content: center;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            font-size: var(--fs-sm) !important;
+        }
+        @media (max-width: 767px) {
+            .keychain-choice-section .order-choice-grid {
+                gap: 6px !important;
+            }
+            .keychain-choice-section .order-choice-btn {
+                min-height: 54px;
+                padding: 7px 3px !important;
+                font-size: 10.4px !important;
+                line-height: 1.22 !important;
+            }
+        }
+        @media (max-width: 370px) {
+            .keychain-choice-section .order-choice-grid {
+                gap: 5px !important;
+            }
+            .keychain-choice-section .order-choice-btn {
+                padding-left: 2px !important;
+                padding-right: 2px !important;
+                font-size: 9.7px !important;
+            }
+        }
 </style>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -5662,7 +5820,9 @@
                         <div class="product-menu-section">
                             <div class="product-menu-title">Goods</div>
                             <button type="button" onclick="showPage('sticker')" data-target-page="sticker">Sticker | สติ๊กเกอร์</button>
-                            <button type="button" onclick="showPage('keychain')" data-target-page="keychain">Keychain | พวงกุญแจ</button>
+                            <button type="button" onclick="showPage('keychain')" data-target-page="keychain">Acrylic Keychain | พวงกุญแจอะคริลิค</button>
+                            <button type="button" onclick="showPage('minicd')" data-target-page="minicd">Mini CD Keychain | พวงกุญแจซีดีจิ๋ว</button>
+                            <button type="button" onclick="showPage('roundbadge')" data-target-page="roundbadge">Round Badge | เข็มกลัดวงกลม</button>
                         </div>
                     </div>
                 </li>
@@ -5677,7 +5837,6 @@
     <div id="lightboxModal" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="ภาพตัวอย่างแบบขยาย" onclick="closeLightbox()">
         <button type="button" class="lightbox-close" aria-label="ปิดภาพขยาย" onclick="closeLightbox()">×</button>
         <img class="lightbox-content" id="lightboxImg" src="" alt="ภาพตัวอย่างผลงานแบบขยาย" onclick="event.stopPropagation()">
-        <video class="lightbox-content lightbox-video" id="lightboxVideo" controls="" muted="" loop="" playsinline="" preload="none" onclick="event.stopPropagation()"></video>
         <div class="lightbox-placeholder-text" id="lightboxPlaceholderText" onclick="event.stopPropagation()"></div>
     </div>
 
@@ -5734,47 +5893,57 @@
             <h2 id="homeProductCategories" style="text-align:center; color: var(--v27-heading-soft); margin-bottom: 20px; font-family: 'Mitr', sans-serif;">หมวดหมู่สินค้า</h2>
             <div class="grid home-product-grid">
                 <a onclick="showPage('tattoo')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-tattoo.webp" onclick="openLightbox(this, event)"><br>[ รูปแทททู ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-tattoo.webp"><br>[ รูปแทททู ]</div>
                     <h3>Temporary Tattoo</h3>
                     <p>แทททูลอกลายน้ำ</p>
                 </a>
                 <a onclick="showPage('polaroid')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-polaroid.webp" onclick="openLightbox(this, event)"><br>[ รูปโพลารอยด์ ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-polaroid.webp"><br>[ รูปโพลารอยด์ ]</div>
                     <h3>Polaroid / Cheki</h3>
                     <p>โพลารอยด์ / เชกิ</p>
                 </a>
                 <a onclick="showPage('photoprint')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-photoprint.webp" onclick="openLightbox(this, event)"><br>[ รูป Photo Print ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-photoprint.webp"><br>[ รูป Photo Print ]</div>
                     <h3>Photo Print</h3>
                     <p>พิมพ์รูปภาพ</p>
                 </a>
                 <a onclick="showPage('photocard')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-photocard.webp" onclick="openLightbox(this, event)"><br>[ รูปโฟโต้การ์ด ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-photocard.webp"><br>[ รูปโฟโต้การ์ด ]</div>
                     <h3>Photo Card</h3>
                     <p>โฟโต้การ์ด</p>
                 </a>
                 <a onclick="showPage('namecard')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-namecard.webp" onclick="openLightbox(this, event)"><br>[ รูปนามบัตร ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-namecard.webp"><br>[ รูปนามบัตร ]</div>
                     <h3>Name Card</h3>
                     <p>นามบัตร</p>
                 </a>
                 <a onclick="showPage('pvc')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-pvc.webp" onclick="openLightbox(this, event)"><br>[ รูป PVC การ์ด ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-pvc.webp"><br>[ รูป PVC การ์ด ]</div>
                     <h3>PVC Card</h3>
                     <p>PVC การ์ด</p>
                 </a>
                 <a onclick="showPage('sticker')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-sticker.webp" onclick="openLightbox(this, event)"><br>[ รูปสติ๊กเกอร์ ]</div>
+                    <div class="img-placeholder" data-image="assets/images/home-sticker.webp"><br>[ รูปสติ๊กเกอร์ ]</div>
                     <h3>Sticker</h3>
                     <p>สติ๊กเกอร์</p>
                 </a>
                 <a onclick="showPage('keychain')" class="card">
-                    <div class="img-placeholder" data-image="assets/images/home-keychain.webp" onclick="openLightbox(this, event)"><br>[ รูปพวงกุญแจ ]</div>
-                    <h3>Keychain</h3>
-                    <p>พวงกุญแจ</p>
+                    <div class="img-placeholder" data-image="assets/images/home-keychain.webp"><br>[ รูปพวงกุญแจอะคริลิค ]</div>
+                    <h3>Acrylic Keychain</h3>
+                    <p>พวงกุญแจอะคริลิค</p>
                 </a>
-                <a onclick="showPage('secret18')" class="card secret-card" style="border-color: var(--accent-light); background: #fffcfc;">
-                    <div class="img-placeholder secret-thumb" data-image="assets/images/home-secret-print.webp" onclick="openLightbox(this, event)" style="background: var(--accent-light); color: var(--accent); border-color: #ffb6c1;"><br>[ รูป 18+ เซนเซอร์ ]</div>
+                <a onclick="showPage('minicd')" class="card">
+                    <div class="img-placeholder" data-image="assets/images/home-mini-cd.webp"><br>[ รูปพวงกุญแจซีดีจิ๋ว ]</div>
+                    <h3>Mini CD Keychain</h3>
+                    <p>พวงกุญแจซีดีจิ๋ว</p>
+                </a>
+                <a onclick="showPage('roundbadge')" class="card">
+                    <div class="img-placeholder" data-image="assets/images/home-round-badge.webp"><br>[ รูปเข็มกลัดวงกลม ]</div>
+                    <h3>Round Badge</h3>
+                    <p>เข็มกลัดวงกลม</p>
+                </a>
+                <a onclick="showPage('secret18')" class="card secret-card home-private-card" style="border-color: var(--accent-light); background: #fffcfc;">
+                    <div class="img-placeholder secret-thumb" data-image="assets/images/home-secret-print.webp" style="background: var(--accent-light); color: var(--accent); border-color: #ffb6c1;"><br>[ รูป 18+ เซนเซอร์ ]</div>
                     <h3 style="color: var(--accent);">Private Print</h3>
                     <p>งานพิมพ์ส่วนตัว</p>
                 </a>
@@ -5787,19 +5956,19 @@
                 </div>
                 <div class="ccc-review-featured-grid">
                     <button type="button" class="ccc-review-card" data-review-category="tattoo" aria-label="เปิดแกลอรี่ Temporary Tattoo">
-                        <span class="ccc-review-cover"><img alt="Temporary Tattoo" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวแทททู ]</span><span class="ccc-review-stack" data-review-badge="tattoo">ดู</span></span>
+                        <span class="ccc-review-cover"><img alt="Temporary Tattoo" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวแทททู ]</span><span class="ccc-review-stack" data-review-badge="tattoo" aria-hidden="true"></span></span>
                         <span class="ccc-review-meta"><strong>Temporary Tattoo</strong><small data-review-count="tattoo">ดูแกลอรี่</small></span>
                     </button>
                     <button type="button" class="ccc-review-card" data-review-category="polaroid" aria-label="เปิดแกลอรี่ Polaroid / Cheki">
-                        <span class="ccc-review-cover"><img alt="Polaroid / Cheki" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวโพลารอยด์ ]</span><span class="ccc-review-stack" data-review-badge="polaroid">ดู</span></span>
+                        <span class="ccc-review-cover"><img alt="Polaroid / Cheki" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวโพลารอยด์ ]</span><span class="ccc-review-stack" data-review-badge="polaroid" aria-hidden="true"></span></span>
                         <span class="ccc-review-meta"><strong>Polaroid / Cheki</strong><small data-review-count="polaroid">ดูแกลอรี่</small></span>
                     </button>
                     <button type="button" class="ccc-review-card" data-review-category="photocard" aria-label="เปิดแกลอรี่ Photo Card">
-                        <span class="ccc-review-cover"><img alt="Photo Card" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวโฟโต้การ์ด ]</span><span class="ccc-review-stack" data-review-badge="photocard">ดู</span></span>
+                        <span class="ccc-review-cover"><img alt="Photo Card" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวโฟโต้การ์ด ]</span><span class="ccc-review-stack" data-review-badge="photocard" aria-hidden="true"></span></span>
                         <span class="ccc-review-meta"><strong>Photo Card</strong><small data-review-count="photocard">ดูแกลอรี่</small></span>
                     </button>
                     <button type="button" class="ccc-review-card" data-review-category="photoprint" aria-label="เปิดแกลอรี่ Photo Print">
-                        <span class="ccc-review-cover"><img alt="Photo Print" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิว Photo Print ]</span><span class="ccc-review-stack" data-review-badge="photoprint">ดู</span></span>
+                        <span class="ccc-review-cover"><img alt="Photo Print" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิว Photo Print ]</span><span class="ccc-review-stack" data-review-badge="photoprint" aria-hidden="true"></span></span>
                         <span class="ccc-review-meta"><strong>Photo Print</strong><small data-review-count="photoprint">ดูแกลอรี่</small></span>
                     </button>
                 </div>
@@ -5808,27 +5977,6 @@
                 </div>
             </div>
 
-            <div class="content-box v27-trust-box v27-compact-panel" style="margin-top: var(--gap-section);">
-                <div class="v27-section-head">
-                    <h2>ทำไมลูกค้าเลือก CCC</h2>
-                    <p>ร้านเล็กที่ช่วยดูไฟล์ก่อนผลิต เหมาะกับงานคอสเพลย์ งานแฟนอาร์ต และของสะสมจำนวนไม่เยอะ</p>
-                </div>
-                <div class="v27-trust-grid">
-                    <div class="v27-trust-card"><strong>เช็กไฟล์ก่อนผลิต</strong><span>ลดปัญหาภาพแตก สีดรอป และลายเล็กเกินไป</span></div>
-                    <div class="v27-trust-card"><strong>เข้าใจงานคอสเพลย์</strong><span>แทททู พร็อพ ของสะสม และของแจกอีเวนต์</span></div>
-                    <div class="v27-trust-card"><strong>สั่งง่ายผ่านแชท</strong><span>เลือกสินค้าในเว็บ แล้วส่งไฟล์ให้ร้านยืนยันยอด</span></div>
-                    <div class="v27-trust-card"><strong>โทนนุ่ม เป็นกันเอง</strong><span>งานพาสเทล คราฟท์ และคุยรายละเอียดง่าย</span></div>
-                </div>
-            </div>
-
-            <div class="content-box v27-about-box v27-compact-panel" style="margin-top: var(--gap-section);">
-                <div class="v27-about-grid v27-about-text-only">
-                    <div class="v27-about-copy">
-                        <h2>About CCC</h2>
-                        <p><strong>CCC 猫 Cat Craft Cos</strong> ร้านงานพิมพ์และงานคราฟท์เล็ก ๆ สำหรับชาวคอสเพลย์และสายอาร์ต ดูแลโดย Jinzo &amp; Yoshino เน้นงานน่ารัก ใช้งานจริง และคุยรายละเอียดก่อนผลิตได้</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
 
@@ -5861,26 +6009,26 @@
                         <h3 class="tattoo-type-title">① แบบปกติ — พื้นโปร่งใส</h3>
                         <p class="tattoo-type-desc">แบบมาตรฐาน พื้นหลังโปร่งใส สีสดสมจริง เหมาะกับผิวทุกโทนสี</p>
                         <div class="tattoo-type-grid">
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-normal-front.webp" data-video="assets/videos/tattoo-normal-front.mp4" onclick="openLightbox(this, event)">[ รูปตัวอย่างแบบปกติ ]</div><span class="opt-label">ด้านหน้า</span></div>
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-normal-skin.webp" data-video="assets/videos/tattoo-normal-skin.mp4" onclick="openLightbox(this, event)">[ รูปแบบปกติติดผิว ]</div><span class="opt-label">เมื่อติดผิว</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-normal-front.webp" onclick="openLightbox(this, event)">[ รูปตัวอย่างแบบปกติ ]</div><span class="opt-label">ด้านหน้า</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-normal-skin.webp" onclick="openLightbox(this, event)">[ รูปแบบปกติติดผิว ]</div><span class="opt-label">เมื่อติดผิว</span></div>
                         </div>
                     </section>
                     <section class="tattoo-type-card">
                         <h3 class="tattoo-type-title">② แบบพื้นขาว</h3>
                         <p class="tattoo-type-desc">เหมาะสำหรับแทททูสีขาวหรือสีอ่อน ช่วยให้สีไม่ดรอปและไม่กลืนไปกับผิวจริง</p>
                         <div class="tattoo-type-grid">
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-white-front.webp" data-video="assets/videos/tattoo-white-front.mp4" onclick="openLightbox(this, event)">[ รูปตัวอย่างแบบพื้นขาว ]</div><span class="opt-label">ด้านหน้า</span></div>
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-white-skin.webp" data-video="assets/videos/tattoo-white-skin.mp4" onclick="openLightbox(this, event)">[ รูปพื้นขาวติดผิว ]</div><span class="opt-label">เมื่อติดผิว</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-white-front.webp" onclick="openLightbox(this, event)">[ รูปตัวอย่างแบบพื้นขาว ]</div><span class="opt-label">ด้านหน้า</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-white-skin.webp" onclick="openLightbox(this, event)">[ รูปพื้นขาวติดผิว ]</div><span class="opt-label">เมื่อติดผิว</span></div>
                         </div>
                     </section>
                     <section class="tattoo-type-card">
                         <h3 class="tattoo-type-title">③ แบบฟอยล์ — ทอง / เงิน / โฮโลแกรม</h3>
                         <p class="tattoo-type-desc">พื้นหลังสีดำ ประกายวาวหรูหรา เหมาะกับงาน Cosplay สาย Fantasy หรือดีไซน์ที่ต้องการเอฟเฟกต์พิเศษ</p>
                         <div class="tattoo-type-grid foil-grid">
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-front.webp" data-video="assets/videos/tattoo-foil-front.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์ด้านหน้า ]</div><span class="opt-label">ด้านหน้า</span></div>
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-gold.webp" data-video="assets/videos/tattoo-foil-gold.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์ทอง ]</div><span class="opt-label">ทอง (Gold)</span></div>
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-silver.webp" data-video="assets/videos/tattoo-foil-silver.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์เงิน ]</div><span class="opt-label">เงิน (Silver)</span></div>
-                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-holo.webp" data-video="assets/videos/tattoo-foil-holo.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์โฮโลแกรม ]</div><span class="opt-label">โฮโลแกรม</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-front.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์ด้านหน้า ]</div><span class="opt-label">ด้านหน้า</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-gold.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์ทอง ]</div><span class="opt-label">ทอง (Gold)</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-silver.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์เงิน ]</div><span class="opt-label">เงิน (Silver)</span></div>
+                            <div class="opt-item"><div class="opt-thumb" data-image="assets/images/tattoo-foil-holo.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์โฮโลแกรม ]</div><span class="opt-label">โฮโลแกรม</span></div>
                         </div>
                         <div class="soft-info-note"><strong style="color:var(--primary);">หมายเหตุ:</strong> แบบฟอยล์พื้นหลังเป็นสีดำตลอด เพราะเป็นฟอยล์เคลือบหมึกเลเซอร์ ให้ดูสีลายบนผิวจริงจากรูปตัวอย่างก่อนสั่งผลิต</div>
                     </section>
@@ -5921,9 +6069,9 @@
                 <h2>สเปคกระดาษ (260 แกรม)</h2>
                 <p>เลือกชนิดผิวสัมผัสได้ตามความชอบ:</p>
                 <div class="opt-grid">
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-glossy.webp" data-video="assets/videos/photoprint-glossy.mp4" onclick="openLightbox(this, event)">[ รูปผิวมันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-semi.webp" data-video="assets/videos/photoprint-semi.mp4" onclick="openLightbox(this, event)">[ รูปผิวกึ่งมัน ]</div><span class="opt-label">กึ่งมัน (Semi)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-matte.webp" data-video="assets/videos/photoprint-matte.mp4" onclick="openLightbox(this, event)">[ รูปผิวด้านทราย ]</div><span class="opt-label">ด้านทราย (Matte)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-glossy.webp" onclick="openLightbox(this, event)">[ รูปผิวมันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-semi.webp" onclick="openLightbox(this, event)">[ รูปผิวกึ่งมัน ]</div><span class="opt-label">กึ่งมัน (Semi)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-matte.webp" onclick="openLightbox(this, event)">[ รูปผิวด้านทราย ]</div><span class="opt-label">ด้านทราย (Matte)</span></div>
                 </div>
 
                 <h2>ขนาดและราคา</h2>
@@ -5973,18 +6121,12 @@
                         <div class="pp-card-main"><span class="pp-size">A4</span><span class="pp-price">30฿</span></div>
                         <div class="pp-card-note single"><span>21 × 29.7 cm</span></div>
                     </div>
-                    <div class="price-card photoprint-price-card photoprint-summary-card a3-card">
-                        <div class="pp-card-top"><span class="pp-name">Poster</span><span class="pp-unit">ราคา/ใบ</span></div>
-                        <div class="pp-card-main"><span class="pp-size">A3</span><span class="pp-price">60฿</span></div>
-                        <div class="pp-card-note single"><span>29.7 × 42 cm</span></div>
-                    </div>
                 </div>
 
                 <h2 style="margin-top: var(--gap-section);">ออปชันเสริม (เคลือบฟิล์ม)</h2>
                 <ul>
                     <li>ขนาด <strong>2×3" ถึง A5</strong>: เพิ่มชุดละ <span class="price-highlight">15 บาท</span></li>
                     <li>ขนาด <strong>A4</strong>: เพิ่มใบละ <span class="price-highlight">30 บาท</span></li>
-                    <li>ขนาด <strong>A3</strong>: ไม่มีบริการเคลือบฟิล์ม</li>
                 </ul>
             </div>
         </div>
@@ -5996,25 +6138,25 @@
                 <div class="img-placeholder" data-image="assets/images/photocard-main.webp" style="height: 250px;" onclick="openLightbox(this, event)">[ รูปภาพตัวอย่างการ์ดโฮโลแกรม, ฟอยล์, เอฟเฟกต์ต่างๆ ]</div>
 
                 <h2>สเปคกระดาษมาตรฐาน</h2>
-                <p>กระดาษหนา <strong>300 แกรม</strong> + เคลือบร้อน 125 ไมครอน (แข็งแรงทนทาน)<br>
+                <p>กระดาษการ์ดหนา <strong>260–300 แกรม</strong><br>
                 ขนาด <strong>5.5 × 8.5 cm</strong> <span style="font-size:var(--fs-base); color:var(--text-muted);">(สอบถามขนาดพิเศษได้)</span></p>
 
                 <h2>ชนิดฟิล์มเคลือบเย็น (เลือกลายได้)</h2>
                 <div class="opt-grid">
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-film-glossy.webp" data-video="assets/videos/photocard-film-glossy.mp4" onclick="openLightbox(this, event)">[ รูปมันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-film-matte.webp" data-video="assets/videos/photocard-film-matte.mp4" onclick="openLightbox(this, event)">[ รูปด้าน ]</div><span class="opt-label">ด้าน (Matte)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-holo-rainbow.webp" data-video="assets/videos/photocard-holo-rainbow.mp4" onclick="openLightbox(this, event)">[ รูปโฮโลรุ้ง ]</div><span class="opt-label">โฮโลแกรมรุ้ง (Rainbow Hologram)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-crystal.webp" data-video="assets/videos/photocard-crystal.mp4" onclick="openLightbox(this, event)">[ รูปคริสตัล ]</div><span class="opt-label">คริสตัล (Crystal)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-star.webp" data-video="assets/videos/photocard-star.mp4" onclick="openLightbox(this, event)">[ รูปดาว ]</div><span class="opt-label">ดาว (Star)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-stardust.webp" data-video="assets/videos/photocard-stardust.mp4" onclick="openLightbox(this, event)">[ รูปละอองดาว ]</div><span class="opt-label">ละอองดาว (Stardust)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-glitter.webp" data-video="assets/videos/photocard-glitter.mp4" onclick="openLightbox(this, event)">[ รูปกลิตเตอร์ ]</div><span class="opt-label">กลิตเตอร์ (Glitter)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-film-glossy.webp" onclick="openLightbox(this, event)">[ รูปมันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-film-matte.webp" onclick="openLightbox(this, event)">[ รูปด้าน ]</div><span class="opt-label">ด้าน (Matte)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-holo-rainbow.webp" onclick="openLightbox(this, event)">[ รูปโฮโลรุ้ง ]</div><span class="opt-label">โฮโลแกรมรุ้ง (Rainbow Hologram)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-crystal.webp" onclick="openLightbox(this, event)">[ รูปคริสตัล ]</div><span class="opt-label">คริสตัล (Crystal)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-star.webp" onclick="openLightbox(this, event)">[ รูปดาว ]</div><span class="opt-label">ดาว (Star)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-stardust.webp" onclick="openLightbox(this, event)">[ รูปละอองดาว ]</div><span class="opt-label">ละอองดาว (Stardust)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-glitter.webp" onclick="openLightbox(this, event)">[ รูปกลิตเตอร์ ]</div><span class="opt-label">กลิตเตอร์ (Glitter)</span></div>
                 </div>
 
                 <h2>ชนิดเคลือบฟอยล์ (Foil)</h2>
                 <div class="opt-grid">
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-gold.webp" data-video="assets/videos/photocard-foil-gold.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์ทอง ]</div><span class="opt-label">ทอง (Gold)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-silver.webp" data-video="assets/videos/photocard-foil-silver.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์เงิน ]</div><span class="opt-label">เงิน (Silver)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-holo.webp" data-video="assets/videos/photocard-foil-holo.mp4" onclick="openLightbox(this, event)">[ รูปฟอยล์โฮโล ]</div><span class="opt-label">โฮโลแกรม</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-gold.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์ทอง ]</div><span class="opt-label">ทอง (Gold)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-silver.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์เงิน ]</div><span class="opt-label">เงิน (Silver)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-holo.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์โฮโล ]</div><span class="opt-label">โฮโลแกรม</span></div>
                 </div>
 
                 <h2>ตารางราคา (ขายเป็นชุด: 1 ชุด = 10 ใบ)</h2>
@@ -6101,8 +6243,8 @@
 
                 <h2>ชนิดผิว (เลือกได้)</h2>
                 <div class="opt-grid">
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/pvc-glossy.webp" data-video="assets/videos/pvc-glossy.mp4" onclick="openLightbox(this, event)">[ รูป PVC ผิวมัน ]</div><span class="opt-label">ผิวมัน (Glossy)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/pvc-matte.webp" data-video="assets/videos/pvc-matte.mp4" onclick="openLightbox(this, event)">[ รูป PVC ผิวด้าน ]</div><span class="opt-label">ผิวด้าน (Matte)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/pvc-glossy.webp" onclick="openLightbox(this, event)">[ รูป PVC ผิวมัน ]</div><span class="opt-label">ผิวมัน (Glossy)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/pvc-matte.webp" onclick="openLightbox(this, event)">[ รูป PVC ผิวด้าน ]</div><span class="opt-label">ผิวด้าน (Matte)</span></div>
                 </div>
 
                 <h2>ราคา</h2>
@@ -6121,23 +6263,19 @@
                 <div class="img-placeholder" data-image="assets/images/sticker-main.webp" style="height: 250px;" onclick="openLightbox(this, event)">[ รูปภาพตัวอย่างสินค้า: สติ๊กเกอร์ไดคัท ]</div>
 
                 <h2>รายละเอียดสินค้า</h2>
-                <p>พิมพ์บนขนาด <strong>A4</strong> เลือกแบบไดคัทได้ตามต้องการ (ไม่มีขั้นต่ำ)</p>
-                <div class="badge-container">
-                    <span class="badge">Kiss Cut — ไดคัท 50% (ลอกแผ่น)</span>
-                    <span class="badge">Die Cut — ไดคัท 100% (ตัดขาด)</span>
-                </div>
-
+                <p>พิมพ์บนขนาด <strong>A4</strong> เลือกผิวมันหรือผิวด้านได้ในราคาเดียวกัน และเลือกแบบไดคัทตามรูปแบบงาน</p>
                 <h2>ชนิดผิว (เลือกได้)</h2>
                 <div class="opt-grid">
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/sticker-glossy.webp" data-video="assets/videos/sticker-glossy.mp4" onclick="openLightbox(this, event)">[ รูปสติ๊กเกอร์มันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/sticker-matte.webp" data-video="assets/videos/sticker-matte.mp4" onclick="openLightbox(this, event)">[ รูปสติ๊กเกอร์ด้าน ]</div><span class="opt-label">ด้าน (Matte)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/sticker-glossy.webp" onclick="openLightbox(this, event)">[ รูปสติ๊กเกอร์มันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/sticker-matte.webp" onclick="openLightbox(this, event)">[ รูปสติ๊กเกอร์ด้าน ]</div><span class="opt-label">ด้าน (Matte)</span></div>
                 </div>
 
                 <h2>ราคา</h2>
                 <ul>
-                    <li>แบบมันวาว (Glossy): <span class="price-highlight">แผ่นละ 40 บาท</span></li>
+                    <li>แบบมันวาว (Glossy): <span class="price-highlight">แผ่นละ 45 บาท</span></li>
                     <li>แบบด้าน (Matte): <span class="price-highlight">แผ่นละ 45 บาท</span></li>
                     <li><strong>ออปชันเสริม:</strong> เพิ่มเคลือบฟิล์ม <span class="price-highlight">+30 บาท/แผ่น</span></li>
+                    <li>สั่งจำนวนมากสามารถสอบถามราคาพิเศษได้</li>
                 </ul>
 
             </div>
@@ -6145,29 +6283,67 @@
 
 
         <div id="keychain" class="page-section">
-            <h1 class="page-title bilingual-title"><span class="title-en">Keychain</span><span class="title-th">พวงกุญแจ</span></h1>
+            <h1 class="page-title bilingual-title"><span class="title-en">Acrylic Keychain</span><span class="title-th">พวงกุญแจอะคริลิค</span></h1>
             <div class="content-box">
                 <div class="img-placeholder" data-image="assets/images/keychain-main.webp" style="height: 200px;" onclick="openLightbox(this, event)">[ รูปพวงกุญแจอะคริลิค ]</div>
                 <h2>รายละเอียดและราคา</h2>
-                <p>พวงกุญแจอะคริลิค มีหลายรูปทรงให้เลือก เหมาะสำหรับทำของสะสม ของแถม หรือของขวัญ</p>
-                <ul>
-                    <li>ทุกแบบ ราคาเดียว: <span class="price-highlight">อันละ 15 บาท</span></li>
-                    <li>แบบตัวอย่างและอะไหล่จะทยอยอัปเดตเพิ่มเติม</li>
-                </ul>
+                <p>พวงกุญแจอะคริลิค 10 รูปทรง เลือกแบบและขนาดได้ เหมาะสำหรับทำของสะสม ของแถม หรือของขวัญ</p>
+                <ul><li>ทุกแบบ ราคาเดียว: <span class="price-highlight">อันละ 15 บาท</span></li></ul>
 
-                <h2 style="margin-top: var(--gap-section);">แบบตัวอย่าง</h2>
-                <p class="keychain-sample-note">พื้นที่ตัวอย่างสำหรับแบบพวงกุญแจ 8 แบบ รออัปเดตรูปจริงเพิ่มเติม</p>
+                <h2 style="margin-top: var(--gap-section);">แบบและขนาด</h2>
+                <p class="keychain-sample-note">เลือกแบบ K01–K10 ได้ตามรูปทรงและขนาดที่ระบุ</p>
                 <div class="opt-grid">
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-a.webp" data-video="assets/videos/keychain-a.mp4" onclick="openLightbox(this, event)">[ แบบ A ]</div><span class="opt-label">แบบ A</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-b.webp" data-video="assets/videos/keychain-b.mp4" onclick="openLightbox(this, event)">[ แบบ B ]</div><span class="opt-label">แบบ B</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-c.webp" data-video="assets/videos/keychain-c.mp4" onclick="openLightbox(this, event)">[ แบบ C ]</div><span class="opt-label">แบบ C</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-d.webp" data-video="assets/videos/keychain-d.mp4" onclick="openLightbox(this, event)">[ แบบ D ]</div><span class="opt-label">แบบ D</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-e.webp" data-video="assets/videos/keychain-e.mp4" onclick="openLightbox(this, event)">[ แบบ E ]</div><span class="opt-label">แบบ E</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-f.webp" data-video="assets/videos/keychain-f.mp4" onclick="openLightbox(this, event)">[ แบบ F ]</div><span class="opt-label">แบบ F</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-g.webp" data-video="assets/videos/keychain-g.mp4" onclick="openLightbox(this, event)">[ แบบ G ]</div><span class="opt-label">แบบ G</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-h.webp" data-video="assets/videos/keychain-h.mp4" onclick="openLightbox(this, event)">[ แบบ H ]</div><span class="opt-label">แบบ H</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k01.webp" onclick="openLightbox(this, event)">[ K01 ]</div><span class="opt-label">K01 ข้าวหลามตัด<br>3.5 × 3.5 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k02.webp" onclick="openLightbox(this, event)">[ K02 ]</div><span class="opt-label">K02 สี่เหลี่ยมมุมตัด<br>4.1 × 6.2 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k03.webp" onclick="openLightbox(this, event)">[ K03 ]</div><span class="opt-label">K03 สี่เหลี่ยมผืนผ้าขอบมน<br>4 × 5.5 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k04.webp" onclick="openLightbox(this, event)">[ K04 ]</div><span class="opt-label">K04 สี่เหลี่ยมผืนผ้า<br>3.3 × 6 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k05.webp" onclick="openLightbox(this, event)">[ K05 ]</div><span class="opt-label">K05 ใบโคลเวอร์<br>5 × 5 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k06.webp" onclick="openLightbox(this, event)">[ K06 ]</div><span class="opt-label">K06 ทานตะวัน<br>5.6 × 5.6 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k07.webp" onclick="openLightbox(this, event)">[ K07 ]</div><span class="opt-label">K07 วงกลม<br>4.2 × 4.7 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k08.webp" onclick="openLightbox(this, event)">[ K08 ]</div><span class="opt-label">K08 หัวใจ<br>5 × 5 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k09.webp" onclick="openLightbox(this, event)">[ K09 ]</div><span class="opt-label">K09 หัวใจขอบลาย<br>5 × 5.2 cm</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/keychain-k10.webp" onclick="openLightbox(this, event)">[ K10 ]</div><span class="opt-label">K10 วงรี<br>3.3 × 4.9 cm</span></div>
                 </div>
+            </div>
+        </div>
 
+
+        <div id="minicd" class="page-section">
+            <h1 class="page-title bilingual-title"><span class="title-en">Mini CD Keychain</span><span class="title-th">พวงกุญแจซีดีจิ๋ว</span></h1>
+            <div class="content-box">
+                <div class="img-placeholder" data-image="assets/images/mini-cd-main.webp" style="height: 220px;" onclick="openLightbox(this, event)">[ รูปพวงกุญแจซีดีจิ๋ว ]</div>
+                <h2>รายละเอียดสินค้า</h2>
+                <p>ขนาด <strong>4.5 × 5 cm</strong> ใส่รูปได้รวม <strong>5 รูป</strong> ครบทั้งปกและแผ่นซีดี</p>
+                <ol class="file-steps">
+                    <li>ด้านนอก: หน้าปก</li><li>ด้านนอก: หลังปก</li>
+                    <li>ด้านใน: หน้าปกด้านใน</li><li>ด้านใน: หลังปกด้านใน</li><li>แผ่น Mini CD</li>
+                </ol>
+                <h2>ตัวเลือกและราคา</h2>
+                <ul>
+                    <li>แบบธรรมดา ไม่มี NFC: <span class="price-highlight">ชิ้นละ 55 บาท</span></li>
+                    <li>แบบเพิ่ม NFC: <span class="price-highlight">ชิ้นละ 60 บาท</span></li>
+                </ul>
+                <p class="order-small-note">NFC ใส่ลิงก์เพลง เพลย์ลิสต์ เว็บไซต์ หรือช่องทางโซเชียลได้</p>
+                <div class="opt-grid">
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/mini-cd-open.webp" onclick="openLightbox(this, event)">[ รูปเปิดปก ]</div><span class="opt-label">ตำแหน่งรูปทั้ง 5 จุด</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/mini-cd-nfc.webp" onclick="openLightbox(this, event)">[ รูป NFC ]</div><span class="opt-label">ตัวเลือกเพิ่ม NFC</span></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="roundbadge" class="page-section">
+            <h1 class="page-title bilingual-title"><span class="title-en">Round Badge</span><span class="title-th">เข็มกลัดวงกลม</span></h1>
+            <div class="content-box">
+                <div class="img-placeholder" data-image="assets/images/round-badge-main.webp" style="height: 220px;" onclick="openLightbox(this, event)">[ รูปเข็มกลัดวงกลม ]</div>
+                <h2>รายละเอียดสินค้า</h2>
+                <p>เข็มกลัดวงกลม ขนาด <strong>5.8 × 5.8 cm</strong> ด้านหลังเป็นเข็มกลัด เหมาะสำหรับของสะสม ของแถม และสินค้าแฟนเมด</p>
+                <h2>ตัวเลือกและราคา</h2>
+                <ul>
+                    <li>แบบปกติ: <span class="price-highlight">ชิ้นละ 20 บาท</span></li>
+                    <li>เคลือบฟิล์มพิเศษแบบเดียวกับ Photo Card (ยกเว้นฟอยล์): <span class="price-highlight">ชิ้นละ 25 บาท</span></li>
+                </ul>
+                <p class="order-small-note">เลือกได้ทั้งฟิล์มมันวาว ฟิล์มด้าน และฟิล์มเอฟเฟกต์ต่าง ๆ โดยไม่มีตัวเลือกฟอยล์</p>
             </div>
         </div>
 
@@ -6175,7 +6351,7 @@
         <div id="secret18" class="page-section">
             <h1 class="page-title bilingual-title secret-title"><span class="title-en">Private Print</span><span class="title-th">งานพิมพ์ส่วนตัว</span></h1>
             <div class="content-box" style="border: 2px solid var(--accent-light); background: #fffafb;">
-                <div class="img-placeholder" data-image="assets/images/secret-print-main.webp" data-video="assets/videos/secret-print-main.mp4" onclick="openLightbox(this, event)" style="background: var(--accent-light); color: var(--accent); border-color: #ffb6c1; height: 200px;">[ รูปตัวอย่างแบบเซนเซอร์ ]</div>
+                <div class="img-placeholder" data-image="assets/images/secret-print-main.webp" onclick="openLightbox(this, event)" style="background: var(--accent-light); color: var(--accent); border-color: #ffb6c1; height: 200px;">[ รูปตัวอย่างแบบเซนเซอร์ ]</div>
                 <h2 style="color: var(--accent);">ส่งไฟล์ส่วนตัวทางแชทโดยตรง</h2>
                 <p>สำหรับงานพิมพ์ส่วนตัว ลูกค้าสามารถเลือกประเภทสินค้าจากหน้าปกติ เช่น ปริ้นรูปภาพ โฟโต้การ์ด หรือโพลารอยด์ แล้วส่งไฟล์ให้ร้านทางแชทโดยตรงได้เลยค่ะ</p>
                 <p>ร้านดูแลไฟล์เป็นส่วนตัว และใช้เฉพาะสำหรับผลิตงานตามออเดอร์เท่านั้น</p>
@@ -6198,7 +6374,7 @@
         <div id="order" class="page-section">
             <h1 class="page-title">รายการสั่งซื้อ / วิธีสั่งซื้อ</h1>
 
-            <div class="order-step-box" aria-label="ขั้นตอนการสั่งซื้อ">
+            <div class="order-step-box" aria-label="ขั้นตอนการสั่งซื้อและชำระเงิน">
                 <div class="order-step-list" id="orderStepList">
                     <span class="order-step-item" data-order-step="1"><span class="order-step-dot">1</span><span class="order-step-label">เลือกสินค้า</span></span>
                     <span class="order-step-item" data-order-step="2"><span class="order-step-dot">2</span><span class="order-step-label">แนบไฟล์</span></span>
@@ -6330,14 +6506,29 @@
             </div>
 
             <div class="content-box" style="margin-top: var(--gap-section);">
-                <h2>ขั้นตอนสั่งซื้อ</h2>
-                <ul class="simple-checklist">
-                    <li>เลือกสินค้าและเพิ่มลงรายการ</li>
-                    <li>แนบลิงก์ไฟล์งาน</li>
-                    <li>กรอกข้อมูลจัดส่ง</li>
-                    <li>คัดลอกรายการแล้วส่งในแชท</li>
-                    <li>ส่งให้ร้านทาง LINE OA หรือ Facebook</li>
-                </ul>
+                <h2>ขั้นตอนการสั่งซื้อและชำระเงิน</h2>
+                <div class="order-payment-flow">
+                    <section class="order-flow-group" aria-labelledby="customerOrderFlowTitle">
+                        <h3 id="customerOrderFlowTitle">1. ลูกค้าเตรียมและส่งรายการ</h3>
+                        <ol class="order-flow-list">
+                            <li>เลือกสินค้าและเพิ่มลงรายการ</li>
+                            <li>แนบลิงก์ไฟล์งาน</li>
+                            <li>กรอกข้อมูลจัดส่ง</li>
+                            <li>คัดลอกรายการสั่งซื้อ</li>
+                            <li>ส่งรายการให้ร้านทาง LINE OA หรือ Facebook</li>
+                        </ol>
+                    </section>
+                    <section class="order-flow-group" aria-labelledby="shopPaymentFlowTitle">
+                        <h3 id="shopPaymentFlowTitle">2. ร้านตรวจยอดและรับชำระ</h3>
+                        <ol class="order-flow-list">
+                            <li>ร้านตรวจไฟล์ ตัวเลือกสินค้า และราคาพิเศษ</li>
+                            <li>ร้านสรุปรายการและยืนยันยอดชำระอีกครั้ง</li>
+                            <li>ร้านส่ง QR PromptPay ให้ลูกค้าทางแชท</li>
+                            <li>ลูกค้าชำระเงินและส่งสลิป</li>
+                            <li>ร้านยืนยันการชำระเงินและเริ่มจัดคิวผลิต</li>
+                        </ol>
+                    </section>
+                </div>
                 <div class="send-order-actions">
                     <button type="button" class="send-order-btn send-line" id="sendLineBtn">LINE OA</button>
                     <button type="button" class="send-order-btn send-fb" id="sendFbBtn">Facebook</button>
@@ -6549,7 +6740,9 @@
         <div class="mobile-product-section">
             <div class="mobile-product-title">Goods</div>
             <button type="button" onclick="showPage('sticker')" data-target-page="sticker">Sticker | สติ๊กเกอร์</button>
-            <button type="button" onclick="showPage('keychain')" data-target-page="keychain">Keychain | พวงกุญแจ</button>
+            <button type="button" onclick="showPage('keychain')" data-target-page="keychain">Acrylic Keychain | พวงกุญแจอะคริลิค</button>
+            <button type="button" onclick="showPage('minicd')" data-target-page="minicd">Mini CD Keychain | พวงกุญแจซีดีจิ๋ว</button>
+            <button type="button" onclick="showPage('roundbadge')" data-target-page="roundbadge">Round Badge | เข็มกลัดวงกลม</button>
         </div>
     </div>
 
@@ -6630,7 +6823,7 @@
 
         // ระบบเปลี่ยนหน้า (SPA)
 
-        const productPages = ['tattoo','secret18','polaroid','photoprint','photocard','namecard','pvc','sticker','keychain'];
+        const productPages = ['tattoo','secret18','polaroid','photoprint','photocard','namecard','pvc','sticker','keychain','minicd','roundbadge'];
         let productMenuCloseTimer = null;
         let currentPageId = 'index';
 
@@ -6828,10 +7021,10 @@
 
         document.getElementById('nav-index').classList.add('active-nav');
 
-        // ระบบ Lightbox ซูมรูปภาพ / วิดีโอสั้น
+        // ระบบ Lightbox ซูมรูปภาพ
         function cleanPreviewText(element) {
             const clone = element.cloneNode(true);
-            clone.querySelectorAll('span, svg, video, img').forEach(node => node.remove());
+            clone.querySelectorAll('span, svg, img').forEach(node => node.remove());
             return (clone.textContent || element.textContent || '')
                 .replace(/⌕/g, '')
                 .replace(/▶/g, '')
@@ -6841,15 +7034,7 @@
 
         function resetLightboxMedia() {
             const img = document.getElementById('lightboxImg');
-            const video = document.getElementById('lightboxVideo');
             const phText = document.getElementById('lightboxPlaceholderText');
-
-            if (video) {
-                video.pause();
-                video.removeAttribute('src');
-                video.load();
-                video.style.display = 'none';
-            }
             if (img) {
                 img.removeAttribute('src');
                 img.style.display = 'none';
@@ -6924,32 +7109,14 @@
             if(event) event.stopPropagation(); // กันไม่ให้กดแล้วเด้งเปลี่ยนหน้าถ้าครอบด้วย a tag
             const modal = document.getElementById('lightboxModal');
             const img = document.getElementById('lightboxImg');
-            const video = document.getElementById('lightboxVideo');
             const phText = document.getElementById('lightboxPlaceholderText');
             const closeButton = modal ? modal.querySelector('.lightbox-close') : null;
-            const videoSrc = element.dataset ? element.dataset.video : '';
             const imageSrc = element.dataset ? element.dataset.image : '';
 
             lightboxTrigger = element;
             resetLightboxMedia();
 
-            if (videoSrc && video) {
-                let didFallback = false;
-                video.onerror = function() {
-                    if (didFallback) return;
-                    didFallback = true;
-                    video.pause();
-                    video.removeAttribute('src');
-                    video.load();
-                    video.style.display = 'none';
-                    showLightboxImageOrPlaceholder(element, img, phText, imageSrc);
-                };
-                video.src = videoSrc;
-                video.style.display = 'block';
-                video.play().catch(function() {});
-            } else {
-                showLightboxImageOrPlaceholder(element, img, phText, imageSrc);
-            }
+            showLightboxImageOrPlaceholder(element, img, phText, imageSrc);
 
             if (modal) {
                 modal.style.display = 'flex';
@@ -7017,7 +7184,7 @@
 
         // ═══ CCC HYBRID RESPONSIVE FINAL: mobile bottom nav + product drawer ═══
         (function() {
-            const productPages = ['tattoo','secret18','polaroid','photoprint','photocard','namecard','pvc','sticker','keychain'];
+            const productPages = ['tattoo','secret18','polaroid','photoprint','photocard','namecard','pvc','sticker','keychain','minicd','roundbadge'];
             const navMap = { index: 'bn-index', order: 'bn-order', faq: 'bn-faq', contact: 'bn-contact' };
 
             function isMobileNav() {
@@ -7156,7 +7323,7 @@
         },
         photoprint: {
             type: 'photoprint', title: 'พิมพ์รูป', unitLabel: 'ใบ',
-            note: 'บางขนาดขายเป็นชุดตามการจัดวางบนกระดาษ • 4×6 จำนวน 30 ใบขึ้นไป ระบบคิดราคา 7 บาท/ใบให้อัตโนมัติ • เคลือบฟิล์ม: 2×3 ถึง A5 เพิ่ม 15 บาท, A4 เพิ่ม 30 บาท, A3 ยังไม่มีบริการเคลือบ'
+            note: 'บางขนาดขายเป็นชุดตามการจัดวางบนกระดาษ • 4×6 จำนวน 30 ใบขึ้นไป ระบบคิดราคา 7 บาท/ใบให้อัตโนมัติ • เคลือบฟิล์ม: 2×3 ถึง A5 เพิ่ม 15 บาท, A4 เพิ่ม 30 บาท'
         },
         pvc: {
             type: 'generic', title: 'PVC การ์ด', unitLabel: 'ใบ',
@@ -7170,17 +7337,37 @@
             note: 'ถ้าเป็นงานขนาดพิเศษหรือจำนวนมาก ร้านจะยืนยันราคาอีกครั้ง'
         },
         keychain: {
-            type: 'generic', title: 'พวงกุญแจ', unitLabel: 'ชิ้น',
-            note: 'ราคา 15 บาท/ชิ้น • แบบตัวอย่างและอะไหล่จะอัปเดตเพิ่มเติม',
+            type: 'generic', title: 'พวงกุญแจอะคริลิค', unitLabel: 'ชิ้น',
+            note: 'ทุกแบบราคา 15 บาท/ชิ้น',
             groups: [{ key: 'option', title: 'แบบพวงกุญแจ', values: [
-                { label: 'แบบ A', price: 15 },
-                { label: 'แบบ B', price: 15 },
-                { label: 'แบบ C', price: 15 },
-                { label: 'แบบ D', price: 15 },
-                { label: 'แบบ E', price: 15 },
-                { label: 'แบบ F', price: 15 },
-                { label: 'แบบ G', price: 15 },
-                { label: 'แบบ H', price: 15 }
+                { label: 'K01 ข้าวหลามตัด', price: 15 },
+                { label: 'K02 สี่เหลี่ยมมุมตัด', price: 15 },
+                { label: 'K03 สี่เหลี่ยมผืนผ้าขอบมน', price: 15 },
+                { label: 'K04 สี่เหลี่ยมผืนผ้า', price: 15 },
+                { label: 'K05 ใบโคลเวอร์', price: 15 },
+                { label: 'K06 ทานตะวัน', price: 15 },
+                { label: 'K07 วงกลม', price: 15 },
+                { label: 'K08 หัวใจ', price: 15 },
+                { label: 'K09 หัวใจขอบลาย', price: 15 },
+                { label: 'K10 วงรี', price: 15 }
+            ] }]
+        },
+        minicd: {
+            type: 'minicd', title: 'พวงกุญแจซีดีจิ๋ว', unitLabel: 'ชิ้น',
+            note: 'ใส่รูปได้ 5 รูป • แบบ NFC กรุณาระบุลิงก์ที่จะบันทึกลง NFC'
+        },
+        roundbadge: {
+            type: 'generic', title: 'เข็มกลัดวงกลม', unitLabel: 'ชิ้น',
+            note: 'ขนาด 5.8 × 5.8 cm • แบบเคลือบฟิล์มไม่มีฟอยล์',
+            groups: [{ key: 'option', title: 'รูปแบบ', values: [
+                { label: 'แบบปกติ', price: 20 },
+                { label: 'ฟิล์มมันวาว', price: 25 },
+                { label: 'ฟิล์มด้าน', price: 25 },
+                { label: 'โฮโลแกรมรุ้ง', price: 25 },
+                { label: 'คริสตัล', price: 25 },
+                { label: 'ดาว', price: 25 },
+                { label: 'ละอองดาว', price: 25 },
+                { label: 'กลิตเตอร์', price: 25 }
             ] }]
         },
         photocard: { type: 'photocard', title: 'โฟโต้การ์ด', unitLabel: 'ชุด' },
@@ -7243,6 +7430,13 @@
     function formatBaht(value) { return Number(value || 0).toLocaleString('th-TH') + ' บาท'; }
     // ตัดคำแปลอังกฤษในวงเล็บออกจากข้อความสรุป เช่น "กึ่งมัน (Semi-Gloss)" -> "กึ่งมัน"
     function shortLabel(label) { return String(label || '').replace(/\s*\([^)]*\)/g, '').trim(); }
+    function escapeAttr(value) {
+        return String(value || '')
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+    }
     function isQuote(item) { return !!item.requiresQuote || item.basePrice === null || item.basePrice === undefined; }
     function calculateUnitPrice(item) {
         if (isQuote(item)) return 0;
@@ -7312,9 +7506,9 @@
         const priceText = summary.requiresQuote ? 'ร้านยืนยันราคาอีกครั้ง' : `${formatBaht(summary.unitPrice)}/${summary.unitLabel}`;
         return `
             <h4>สรุปรายการนี้</h4>
-            <div class="order-summary-line"><span>สินค้า</span><strong>${summary.product}</strong></div>
-            <div class="order-summary-line"><span>รายละเอียด</span><strong>${summary.detail}</strong></div>
-            <div class="order-summary-line"><span>จำนวน</span><strong>${summary.qtyText || (summary.qty + ' ' + summary.unitLabel)}</strong></div>
+            <div class="order-summary-line"><span>สินค้า</span><strong>${escapeAttr(summary.product)}</strong></div>
+            <div class="order-summary-line"><span>รายละเอียด</span><strong>${escapeAttr(summary.detail)}</strong></div>
+            <div class="order-summary-line"><span>จำนวน</span><strong>${escapeAttr(summary.qtyText || (summary.qty + ' ' + summary.unitLabel))}</strong></div>
             <div class="order-summary-line"><span>ราคา</span><strong>${priceText}</strong></div>
             <div class="order-summary-line total"><span>รวมสินค้า</span><strong>${totalText}</strong></div>
             <p class="order-small-note">ยังไม่รวมค่าส่ง${summary.requiresQuote ? ' • กรุณารอร้านยืนยันราคา' : ''}</p>`;
@@ -7354,8 +7548,7 @@
         { label: 'Photo Booth 2×6', displayLabel: 'Photo Booth — 2 × 6 นิ้ว', choiceLabel: '2 × 6', price: 10, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
         { label: 'Post Card 4×6', displayLabel: 'Post Card — 4 × 6 นิ้ว', choiceLabel: '4 × 6', price: 8, unitLabel: 'ใบ', special: '4x6' },
         { label: 'Mini Poster A5', displayLabel: 'Mini Poster — A5', choiceLabel: 'A5', price: 30, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
-        { label: 'A4 Art Print', displayLabel: 'Art Print — A4', choiceLabel: 'A4', price: 30, unitLabel: 'ใบ' },
-        { label: 'A3 Poster', displayLabel: 'Poster — A3', choiceLabel: 'A3', price: 60, unitLabel: 'ใบ', noLaminate: true }
+        { label: 'A4 Art Print', displayLabel: 'Art Print — A4', choiceLabel: 'A4', price: 30, unitLabel: 'ใบ' }
     ];
     const photoprintSurfaces = [
         { label: 'มันวาว (Glossy)' },
@@ -7376,11 +7569,10 @@
         state.sizeIndex = Math.min(Math.max(Number(state.sizeIndex || 0), 0), photoprintSizes.length - 1);
         state.surfaceIndex = Math.min(Math.max(Number(state.surfaceIndex || 0), 0), photoprintSurfaces.length - 1);
         state.filmIndex = Math.min(Math.max(Number(state.filmIndex || 0), 0), filmTypeOptions.length - 1);
-        if (photoprintSizes[state.sizeIndex].noLaminate) state.laminate = 'no';
         return state;
     }
     function photoprintLaminateAdd(size) {
-        if (!size || size.noLaminate) return 0;
+        if (!size) return 0;
         return size.label.includes('A4') ? 30 : 15;
     }
     function photoprintSummary(formEl) {
@@ -7425,7 +7617,7 @@
         const size = photoprintSizes[state.sizeIndex];
         const laminateChoices = [
             { label: 'ไม่เคลือบ' },
-            { label: 'เคลือบฟิล์ม', disabled: !!size.noLaminate }
+            { label: 'เคลือบฟิล์ม' }
         ];
         let html = '';
         html += `<div class="order-choice-section photoprint-size-choice"><div class="order-choice-title">ขนาด</div>${choiceButtons('sizeIndex', photoprintSizes.map(v => ({ label: v.choiceLabel || v.displayLabel || v.label })), state.sizeIndex)}</div>`;
@@ -7433,9 +7625,6 @@
         html += `<div class="order-choice-section"><div class="order-choice-title">เคลือบฟิล์ม</div>${choiceButtons('laminate', laminateChoices, state.laminate === 'yes' ? 1 : 0)}</div>`;
         if (state.laminate === 'yes') {
             html += `<div class="order-choice-section"><div class="order-choice-title">ชนิดฟิล์ม</div>${choiceButtons('filmIndex', filmTypeOptions, state.filmIndex)}</div>`;
-        }
-        if (size.noLaminate) {
-            html += `<p class="order-small-note">ขนาด A3 ยังไม่มีบริการเคลือบฟิล์มในระบบนี้</p>`;
         }
         holder.innerHTML = html;
         const qtyTitle = formEl.querySelector('[data-photoprint-qty-title]');
@@ -7513,14 +7702,19 @@
 
 
     const stickerMaterialOptions = [
-        { label: 'มันวาว (Glossy)', price: 40 },
+        { label: 'มันวาว (Glossy)', price: 45 },
         { label: 'ด้าน (Matte)', price: 45 }
     ];
     const stickerCoatingOptions = [
         { label: 'ไม่เคลือบ', value: 'no' },
         { label: 'เคลือบฟิล์ม', value: 'yes' }
     ];
-    const stickerCutOptions = [{ label: 'Kiss Cut' }, { label: 'Die Cut' }];
+    const stickerCutOptions = [
+        { label: 'ไม่ไดคัท', price: 0 },
+        { label: 'Kiss Cut — ไดคัท 50%', price: 10 },
+        { label: 'ไดคัท 100% — ตัดทะลุ', price: 15 },
+        { label: 'ไดคัท 100% — ลายเยอะ/ซับซ้อน', price: 20 }
+    ];
     const stickerFilmAddPrice = 30;
     function stickerState(formEl) {
         const defaultState = { materialIndex: 0, coatingIndex: 0, filmIndex: 0, cutIndex: 0 };
@@ -7546,7 +7740,7 @@
         let detail = shortLabel(material.label);
         if (hasFilm) detail += ` เคลือบ (${shortLabel(filmTypeOptions[state.filmIndex].label)})`;
         detail += ` ${cut.label}`;
-        const unitPrice = material.price + (hasFilm ? stickerFilmAddPrice : 0);
+        const unitPrice = material.price + cut.price + (hasFilm ? stickerFilmAddPrice : 0);
         return {
             product: 'สติ๊กเกอร์',
             detail: detail,
@@ -7556,7 +7750,7 @@
             basePrice: unitPrice,
             special: '',
             requiresQuote: false,
-            note: 'ถ้าเป็นงานขนาดพิเศษหรือจำนวนมาก ร้านจะยืนยันราคาอีกครั้ง'
+            note: 'สั่งจำนวนมากสามารถสอบถามราคาพิเศษได้ ร้านจะยืนยันราคาอีกครั้ง'
         };
     }
     function renderStickerDynamicChoices(formEl) {
@@ -7593,7 +7787,7 @@
                     <button type="button" class="qty-btn" data-qty-plus>+</button>
                 </div>
             </div>
-            <p class="order-small-note">ถ้าเลือกเคลือบฟิล์ม ระบบจะแสดงชนิดฟิล์มให้เลือกเพิ่มเติม</p>
+            <p class="order-small-note">เคลือบฟิล์ม +30 บาท/แผ่น • สั่งจำนวนมากสามารถสอบถามราคาพิเศษได้</p>
             <div class="order-current-summary" data-current-summary></div>
             <div class="order-add-actions">
                 <button type="button" class="add-order-btn" data-add-cart>เพิ่มลงรายการ</button>
@@ -7700,11 +7894,75 @@
             </div>`;
     }
 
+    function miniCdState(formEl) {
+        const state = { nfcIndex: 0, nfcLink: '', ...JSON.parse(formEl.dataset.orderState || '{}') };
+        state.nfcIndex = Number(state.nfcIndex) === 1 ? 1 : 0;
+        state.nfcLink = String(state.nfcLink || '');
+        return state;
+    }
+
+    function miniCdSummary(formEl) {
+        const state = miniCdState(formEl);
+        formEl.dataset.orderState = JSON.stringify(state);
+        const hasNfc = state.nfcIndex === 1;
+        const link = state.nfcLink.trim();
+        return {
+            product: 'พวงกุญแจซีดีจิ๋ว',
+            detail: hasNfc ? `เพิ่ม NFC${link ? ` — ลิงก์: ${link}` : ''}` : 'แบบธรรมดา (ไม่มี NFC)',
+            qty: getQty(formEl),
+            unitLabel: 'ชิ้น',
+            unitPrice: hasNfc ? 60 : 55,
+            basePrice: hasNfc ? 60 : 55,
+            special: '',
+            requiresQuote: false,
+            note: 'ขนาด 4.5 × 5 cm • ใส่รูปได้ 5 รูป',
+            validationMessage: hasNfc && !link ? 'กรุณาใส่ลิงก์สำหรับ NFC ก่อนเพิ่มลงรายการ' : ''
+        };
+    }
+
+    function renderMiniCdDynamicChoices(formEl) {
+        const holder = formEl.querySelector('[data-minicd-dynamic]');
+        if (!holder) return;
+        const state = miniCdState(formEl);
+        holder.innerHTML = state.nfcIndex === 1 ? `
+            <div class="order-field" style="margin-top:12px;">
+                <label for="miniCdNfcLink-${formEl.dataset.pageId || 'item'}">ลิงก์สำหรับ NFC</label>
+                <input id="miniCdNfcLink-${formEl.dataset.pageId || 'item'}" type="url" inputmode="url" data-minicd-nfc-link value="${escapeAttr(state.nfcLink)}" placeholder="https://..." autocomplete="url">
+                <p class="order-small-note">ใส่ลิงก์ช่องทางโซเชียล เพลง เว็บไซต์ หรือปลายทางอื่นที่ต้องการ</p>
+            </div>` : '';
+    }
+
+    function renderMiniCdForm() {
+        return `
+            <h3>เพิ่มลงรายการสั่งซื้อ</h3>
+            <div class="order-choice-section">
+                <div class="order-choice-title">รูปแบบ</div>
+                ${choiceButtons('nfcIndex', [{ label: 'แบบธรรมดา — ไม่มี NFC' }, { label: 'แบบเพิ่ม NFC' }], 0)}
+            </div>
+            <div data-minicd-dynamic></div>
+            <div class="order-choice-section">
+                <div class="order-choice-title">จำนวน (ชิ้น)</div>
+                <div class="qty-control">
+                    <button type="button" class="qty-btn" data-qty-minus>-</button>
+                    <input type="number" inputmode="numeric" min="1" step="1" value="1" data-cart-qty>
+                    <button type="button" class="qty-btn" data-qty-plus>+</button>
+                </div>
+            </div>
+            <p class="order-small-note">แบบธรรมดา 55 บาท/ชิ้น • แบบเพิ่ม NFC 60 บาท/ชิ้น</p>
+            <div class="order-current-summary" data-current-summary></div>
+            <div class="order-add-actions">
+                <button type="button" class="add-order-btn" data-add-cart>เพิ่มลงรายการ</button>
+                <button type="button" class="clear-cart-btn" onclick="showPage('order')">ดูรายการสั่งซื้อ</button>
+                <span data-cart-hint style="font-size:var(--fs-sm); color:var(--text-muted);"></span>
+            </div>`;
+    }
+
     function currentSummary(formEl, pageId) {
         if (pageId === 'photocard') return photocardSummary(formEl);
         if (pageId === 'namecard') return namecardSummary(formEl);
         if (pageId === 'photoprint') return photoprintSummary(formEl);
         if (pageId === 'sticker') return stickerSummary(formEl);
+        if (pageId === 'minicd') return miniCdSummary(formEl);
         return selectedGenericSummary(formEl, pageId);
     }
 
@@ -7717,6 +7975,7 @@
         if (pageId === 'namecard') renderNamecardDynamicChoices(formEl);
         if (pageId === 'photoprint') renderPhotoprintDynamicChoices(formEl);
         if (pageId === 'sticker') renderStickerDynamicChoices(formEl);
+        if (pageId === 'minicd') renderMiniCdDynamicChoices(formEl);
     }
 
     function updateOrderShortcutHint(formEl) {
@@ -7726,6 +7985,13 @@
 
     function addCartItem(pageId, formEl) {
         const summary = currentSummary(formEl, pageId);
+        if (summary.validationMessage) {
+            const hint = formEl.querySelector('[data-cart-hint]');
+            if (hint) hint.textContent = summary.validationMessage;
+            const linkInput = formEl.querySelector('[data-minicd-nfc-link]');
+            if (linkInput) linkInput.focus();
+            return;
+        }
         const item = {
             id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
             product: summary.product,
@@ -7840,8 +8106,8 @@
             const box = document.createElement('div');
             box.className = 'order-add-box';
             box.dataset.pageId = pageId;
-            box.dataset.orderState = pageId === 'photocard' ? JSON.stringify({ workType: 'normal', printSides: '1', filmSides: '1', filmType: 'ด้าน (Matte)', effectSides: '1', effect: 'Hologram' }) : pageId === 'namecard' ? JSON.stringify({ sizeIndex: 0, surfaceIndex: 0, printSides: '1', coating: 'none', filmIndex: 0 }) : pageId === 'photoprint' ? JSON.stringify({ sizeIndex: 6, surfaceIndex: 1, laminate: 'no', filmIndex: 0 }) : pageId === 'sticker' ? JSON.stringify({ materialIndex: 0, coatingIndex: 0, filmIndex: 0, cutIndex: 0 }) : '{}';
-            box.innerHTML = config.type === 'photocard' ? renderPhotocardForm() : config.type === 'namecard' ? renderNamecardForm() : config.type === 'photoprint' ? renderPhotoprintForm() : config.type === 'sticker' ? renderStickerForm() : renderGenericForm(pageId, config);
+            box.dataset.orderState = pageId === 'photocard' ? JSON.stringify({ workType: 'normal', printSides: '1', filmSides: '1', filmType: 'ด้าน (Matte)', effectSides: '1', effect: 'Hologram' }) : pageId === 'namecard' ? JSON.stringify({ sizeIndex: 0, surfaceIndex: 0, printSides: '1', coating: 'none', filmIndex: 0 }) : pageId === 'photoprint' ? JSON.stringify({ sizeIndex: 6, surfaceIndex: 1, laminate: 'no', filmIndex: 0 }) : pageId === 'sticker' ? JSON.stringify({ materialIndex: 0, coatingIndex: 0, filmIndex: 0, cutIndex: 0 }) : pageId === 'minicd' ? JSON.stringify({ nfcIndex: 0, nfcLink: '' }) : '{}';
+            box.innerHTML = config.type === 'photocard' ? renderPhotocardForm() : config.type === 'namecard' ? renderNamecardForm() : config.type === 'photoprint' ? renderPhotoprintForm() : config.type === 'sticker' ? renderStickerForm() : config.type === 'minicd' ? renderMiniCdForm() : renderGenericForm(pageId, config);
             if (config.type !== 'photocard' && config.type !== 'photoprint') {
                 const stateHolder = box.querySelector('[data-state-holder]');
                 if (stateHolder) box.dataset.orderState = stateHolder.dataset.state || '{}';
@@ -7872,13 +8138,13 @@
                         else if (key === 'surfaceIndex') state.surfaceIndex = index;
                         else if (key === 'laminate') state.laminate = index === 1 ? 'yes' : 'no';
                         else if (key === 'filmIndex') state.filmIndex = index;
-                        const chosenSize = photoprintSizes[state.sizeIndex] || photoprintSizes[0];
-                        if (chosenSize.noLaminate) state.laminate = 'no';
                     } else if (pageId === 'sticker') {
                         if (key === 'materialIndex') state.materialIndex = index;
                         else if (key === 'coatingIndex') state.coatingIndex = index;
                         else if (key === 'filmIndex') state.filmIndex = index;
                         else if (key === 'cutIndex') state.cutIndex = index;
+                    } else if (pageId === 'minicd') {
+                        if (key === 'nfcIndex') state.nfcIndex = index === 1 ? 1 : 0;
                     } else {
                         state[key] = index;
                     }
@@ -7900,6 +8166,16 @@
                 if (event.target.matches('[data-add-cart]')) addCartItem(pageId, box);
             });
             box.addEventListener('input', function(event) {
+                if (event.target.matches('[data-minicd-nfc-link]')) {
+                    const state = miniCdState(box);
+                    state.nfcLink = event.target.value;
+                    box.dataset.orderState = JSON.stringify(state);
+                    const summaryBox = box.querySelector('[data-current-summary]');
+                    if (summaryBox) summaryBox.innerHTML = buildSummaryHtml(miniCdSummary(box));
+                    const hint = box.querySelector('[data-cart-hint]');
+                    if (hint) hint.textContent = '';
+                    return;
+                }
                 if (event.target.matches('[data-cart-qty]')) updateAddForm(box, pageId);
             });
             box.addEventListener('focusin', function(event) {
@@ -7926,10 +8202,10 @@
                 return `<div class="cart-item">
                     <div class="cart-item-head">
                         <div>
-                            <div class="cart-item-title">${index + 1}. ${item.product}</div>
-                            <div class="cart-item-option">${item.option}</div>
+                            <div class="cart-item-title">${index + 1}. ${escapeAttr(item.product)}</div>
+                            <div class="cart-item-option">${escapeAttr(item.option)}</div>
                             <div class="cart-item-option">ราคา ${unitPriceText}</div>
-                            ${item.note ? `<div class="cart-item-option">${item.note}</div>` : ''}
+                            ${item.note ? `<div class="cart-item-option">${escapeAttr(item.note)}</div>` : ''}
                         </div>
                         <button type="button" class="cart-remove" data-remove-cart="${item.id}">ลบ</button>
                     </div>
@@ -8624,7 +8900,7 @@
 <script>
 /* V37 hash routing + responsive desktop product-menu positioning */
 (function () {
-    const validPages = new Set(['index','tattoo','secret18','polaroid','photoprint','photocard','namecard','pvc','sticker','keychain','order','faq','contact']);
+    const validPages = new Set(['index','tattoo','secret18','polaroid','photoprint','photocard','namecard','pvc','sticker','keychain','minicd','roundbadge','order','faq','contact']);
 
     function pageFromHash() {
         const raw = (window.location.hash || '').replace(/^#/, '').trim();
@@ -8678,7 +8954,9 @@
         { id: 'namecard', title: 'Name Card', th: 'นามบัตร', legacy: 'assets/images/review-namecard.webp' },
         { id: 'pvc', title: 'PVC Card', th: 'PVC การ์ด', legacy: 'assets/images/review-pvc.webp' },
         { id: 'sticker', title: 'Sticker', th: 'สติ๊กเกอร์', legacy: 'assets/images/review-sticker.webp' },
-        { id: 'keychain', title: 'Keychain', th: 'พวงกุญแจ', legacy: 'assets/images/review-keychain.webp' }
+        { id: 'keychain', title: 'Acrylic Keychain', th: 'พวงกุญแจอะคริลิค', legacy: 'assets/images/review-keychain.webp' },
+        { id: 'minicd', title: 'Mini CD Keychain', th: 'พวงกุญแจซีดีจิ๋ว', legacy: 'assets/images/review-minicd.webp' },
+        { id: 'roundbadge', title: 'Round Badge', th: 'เข็มกลัดวงกลม', legacy: 'assets/images/review-roundbadge.webp' }
     ];
     const categoryMap = new Map(reviewCategories.map(function (category) { return [category.id, category]; }));
     const maxReviewSlots = 12;
@@ -8763,7 +9041,8 @@
             node.textContent = realCount ? realCount + ' รูป · ดูแกลอรี่' : 'ดูแกลอรี่';
         });
         document.querySelectorAll('[data-review-badge="' + category.id + '"]').forEach(function (node) {
-            node.textContent = realCount || 'ดู';
+            node.textContent = '';
+            node.setAttribute('aria-hidden', 'true');
         });
         const modalCount = document.querySelector('[data-review-modal-count="' + category.id + '"]');
         if (modalCount) modalCount.textContent = realCount ? category.th + ' · ' + realCount + ' รูป' : category.th + ' · ดูแกลอรี่';
