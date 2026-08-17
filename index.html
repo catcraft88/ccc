@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCC 猫 | Cat Craft Cos — Custom Print &amp; Craft Goods for Cosplay Lovers</title>
-    <meta name="ccc-version" content="v48-ui-simplify">
+    <meta name="ccc-version" content="v49-review-icon-cleanup">
     <meta name="description" content="CCC Cat Craft Cos รับผลิต Temporary Tattoo, Photo Print, Photo Card, Name Card, PVC Card, Sticker, Acrylic Keychain, Mini CD Keychain และ Round Badge สำหรับชาวคอสเพลย์และสายอาร์ต">
     <meta name="theme-color" content="#a794e6" id="themeColorMeta">
 
@@ -5672,43 +5672,34 @@
             display: none !important;
         }
 
-        /* Homepage review cards: compact magnifying-glass icon at the lower-right. */
+        /* Homepage review cards: reuse the original magnifier glyph and styling. */
         .ccc-review-stack {
             top: auto !important;
-            right: 9px !important;
-            bottom: 9px !important;
+            right: 8px !important;
+            bottom: 8px !important;
             min-width: 28px !important;
             width: 28px !important;
             height: 28px !important;
             padding: 0 !important;
-            color: rgba(138,118,210,0.86) !important;
-            background: rgba(255,255,255,0.70) !important;
-            border-color: rgba(167,148,230,0.16) !important;
-            font-size: 0 !important;
-            line-height: 0 !important;
+            color: rgba(138,118,210,0.82) !important;
+            background: rgba(255,255,255,0.36) !important;
+            border-color: rgba(167,148,230,0.13) !important;
+            box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,0.34) !important;
+            opacity: 0.72 !important;
         }
         .ccc-review-stack::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 6px;
-            width: 9px;
-            height: 9px;
-            box-sizing: border-box;
-            border: 2px solid currentColor;
-            border-radius: 50%;
+            content: '⌕';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: var(--fs-lg);
+            line-height: 1;
         }
         .ccc-review-stack::after {
-            content: '';
-            position: absolute;
-            left: 16px;
-            top: 16px;
-            width: 6px;
-            height: 2px;
-            border-radius: var(--r-pill);
-            background: currentColor;
-            transform: rotate(45deg);
-            transform-origin: left center;
+            content: none !important;
+            display: none !important;
         }
         body.dark-theme .ccc-review-stack {
             color: rgba(216,208,255,0.86) !important;
@@ -5815,7 +5806,6 @@
                             <button type="button" onclick="showPage('photocard')" data-target-page="photocard">Photo Card | โฟโต้การ์ด</button>
                             <button type="button" onclick="showPage('namecard')" data-target-page="namecard">Name Card | นามบัตร</button>
                             <button type="button" onclick="showPage('pvc')" data-target-page="pvc">PVC Card | PVC การ์ด</button>
-                            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Private Print | งานพิมพ์ส่วนตัว</button>
                         </div>
                         <div class="product-menu-section">
                             <div class="product-menu-title">Goods</div>
@@ -5823,6 +5813,10 @@
                             <button type="button" onclick="showPage('keychain')" data-target-page="keychain">Acrylic Keychain | พวงกุญแจอะคริลิค</button>
                             <button type="button" onclick="showPage('minicd')" data-target-page="minicd">Mini CD Keychain | พวงกุญแจซีดีจิ๋ว</button>
                             <button type="button" onclick="showPage('roundbadge')" data-target-page="roundbadge">Round Badge | เข็มกลัดวงกลม</button>
+                        </div>
+                        <div class="product-menu-section">
+                            <div class="product-menu-title">Private Service</div>
+                            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Private Print | งานพิมพ์ส่วนตัว</button>
                         </div>
                     </div>
                 </li>
@@ -5957,19 +5951,19 @@
                 <div class="ccc-review-featured-grid">
                     <button type="button" class="ccc-review-card" data-review-category="tattoo" aria-label="เปิดแกลอรี่ Temporary Tattoo">
                         <span class="ccc-review-cover"><img alt="Temporary Tattoo" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวแทททู ]</span><span class="ccc-review-stack" data-review-badge="tattoo" aria-hidden="true"></span></span>
-                        <span class="ccc-review-meta"><strong>Temporary Tattoo</strong><small data-review-count="tattoo">ดูแกลอรี่</small></span>
+                        <span class="ccc-review-meta"><strong>Temporary Tattoo</strong></span>
                     </button>
                     <button type="button" class="ccc-review-card" data-review-category="polaroid" aria-label="เปิดแกลอรี่ Polaroid / Cheki">
                         <span class="ccc-review-cover"><img alt="Polaroid / Cheki" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวโพลารอยด์ ]</span><span class="ccc-review-stack" data-review-badge="polaroid" aria-hidden="true"></span></span>
-                        <span class="ccc-review-meta"><strong>Polaroid / Cheki</strong><small data-review-count="polaroid">ดูแกลอรี่</small></span>
+                        <span class="ccc-review-meta"><strong>Polaroid / Cheki</strong></span>
                     </button>
                     <button type="button" class="ccc-review-card" data-review-category="photocard" aria-label="เปิดแกลอรี่ Photo Card">
                         <span class="ccc-review-cover"><img alt="Photo Card" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิวโฟโต้การ์ด ]</span><span class="ccc-review-stack" data-review-badge="photocard" aria-hidden="true"></span></span>
-                        <span class="ccc-review-meta"><strong>Photo Card</strong><small data-review-count="photocard">ดูแกลอรี่</small></span>
+                        <span class="ccc-review-meta"><strong>Photo Card</strong></span>
                     </button>
                     <button type="button" class="ccc-review-card" data-review-category="photoprint" aria-label="เปิดแกลอรี่ Photo Print">
                         <span class="ccc-review-cover"><img alt="Photo Print" loading="lazy"><span class="ccc-review-cover-placeholder">[ รีวิว Photo Print ]</span><span class="ccc-review-stack" data-review-badge="photoprint" aria-hidden="true"></span></span>
-                        <span class="ccc-review-meta"><strong>Photo Print</strong><small data-review-count="photoprint">ดูแกลอรี่</small></span>
+                        <span class="ccc-review-meta"><strong>Photo Print</strong></span>
                     </button>
                 </div>
                 <div class="ccc-review-all-wrap">
@@ -6052,11 +6046,11 @@
             <div class="content-box">
                 <div class="img-placeholder" data-image="assets/images/polaroid-main.webp" style="height: 250px;" onclick="openLightbox(this, event)">[ รูปภาพตัวอย่างสินค้า: โพลารอยด์ของจริง ]</div>
                 <h2>รายละเอียดสินค้า</h2>
-                <p>เก็บความทรงจำให้คลาสสิกด้วย <strong>ฟิล์มแท้ Fujifilm</strong> (กรอบขาว) สีสันสวยงาม คมชัด เก็บได้ยาวนาน</p>
+                <p>โพลารอยด์ เชกิ ฟิล์มแท้ Fujifilm mini Instax</p>
 
                 <div class="price-box" style="text-align: center; padding: 20px; background: white; border-radius: var(--r-md); border: 1px dashed var(--secondary); margin: 20px 0;">
                     <span style="font-size: var(--fs-xl); color: var(--text-main);">ราคาเพียง</span><br>
-                    <span class="price-highlight" style="font-size: 32px;">ใบละ 35 บาท</span>
+                    <span class="price-highlight" style="font-size: 32px;">ใบละ 40 บาท</span>
                 </div>
             </div>
         </div>
@@ -6065,13 +6059,14 @@
         <div id="photoprint" class="page-section">
             <h1 class="page-title bilingual-title"><span class="title-en">Photo Print</span><span class="title-th">พิมพ์รูปภาพ</span></h1>
             <div class="content-box">
-                <div class="img-placeholder" data-image="assets/images/photoprint-main.webp" style="height: 250px;" onclick="openLightbox(this, event)">[ รูปภาพตัวอย่างสินค้า: กระดาษมัน, กึ่งมัน, ด้านทราย ]</div>
-                <h2>สเปคกระดาษ (260 แกรม)</h2>
-                <p>เลือกชนิดผิวสัมผัสได้ตามความชอบ:</p>
+                <div class="img-placeholder" data-image="assets/images/photoprint-main.webp" style="height: 250px;" onclick="openLightbox(this, event)">[ รูปภาพตัวอย่างสินค้า: กระดาษมัน, กึ่งมันกึ่งด้าน, ด้านทราย และเคลือบฟิล์ม ]</div>
+                <h2>รายละเอียดสินค้า</h2>
+                <p>กระดาษโฟโต้ <strong>260 แกรม</strong> เลือกชนิดผิวสัมผัสและการเคลือบได้ตามความชอบ:</p>
                 <div class="opt-grid">
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-glossy.webp" onclick="openLightbox(this, event)">[ รูปผิวมันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-semi.webp" onclick="openLightbox(this, event)">[ รูปผิวกึ่งมัน ]</div><span class="opt-label">กึ่งมัน (Semi)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-matte.webp" onclick="openLightbox(this, event)">[ รูปผิวด้านทราย ]</div><span class="opt-label">ด้านทราย (Matte)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-semi.webp" onclick="openLightbox(this, event)">[ รูปผิวกึ่งมันกึ่งด้าน ]</div><span class="opt-label">กึ่งมันกึ่งด้าน (Semi-Gloss)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-matte.webp" onclick="openLightbox(this, event)">[ รูปผิวด้านทราย ]</div><span class="opt-label">ด้านทราย (Luster)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photoprint-film.webp" onclick="openLightbox(this, event)">[ รูปเคลือบฟิล์ม ]</div><span class="opt-label">เคลือบฟิล์ม (Film)</span></div>
                 </div>
 
                 <h2>ขนาดและราคา</h2>
@@ -6084,7 +6079,7 @@
                     <div class="price-card photoprint-price-card photoprint-summary-card id-photo-card">
                         <div class="pp-card-top"><span class="pp-name">ID Photo 1.5</span><span class="pp-unit">ราคา/ชุด</span></div>
                         <div class="pp-card-main"><span class="pp-size">1.5 นิ้ว</span><span class="pp-price">12฿</span></div>
-                        <div class="pp-card-note split"><span>3 × 4 cm</span><span>9 รูป/ชุด</span></div>
+                        <div class="pp-card-note split"><span>3 × 4 cm</span><span>8 รูป/ชุด</span></div>
                     </div>
                     <div class="price-card photoprint-price-card photoprint-summary-card id-photo-card">
                         <div class="pp-card-top"><span class="pp-name">ID Photo 2</span><span class="pp-unit">ราคา/ชุด</span></div>
@@ -6098,12 +6093,12 @@
                     </div>
                     <div class="price-card photoprint-price-card photoprint-summary-card">
                         <div class="pp-card-top"><span class="pp-name">Small Print</span><span class="pp-unit">ราคา/ชุด</span></div>
-                        <div class="pp-card-main"><span class="pp-size">3 × 4</span><span class="pp-price">10฿</span></div>
+                        <div class="pp-card-main"><span class="pp-size">3 × 4</span><span class="pp-price">8฿</span></div>
                         <div class="pp-card-note split"><span>ขนาด/นิ้ว</span><span>2 ใบ/ชุด</span></div>
                     </div>
                     <div class="price-card photoprint-price-card photoprint-summary-card">
                         <div class="pp-card-top"><span class="pp-name">Photo Booth</span><span class="pp-unit">ราคา/ชุด</span></div>
-                        <div class="pp-card-main"><span class="pp-size">2 × 6</span><span class="pp-price">10฿</span></div>
+                        <div class="pp-card-main"><span class="pp-size">2 × 6</span><span class="pp-price">8฿</span></div>
                         <div class="pp-card-note split"><span>ขนาด/นิ้ว</span><span>2 ใบ/ชุด</span></div>
                     </div>
                     <div class="price-card photoprint-price-card photoprint-summary-card postcard-card">
@@ -6137,7 +6132,7 @@
             <div class="content-box">
                 <div class="img-placeholder" data-image="assets/images/photocard-main.webp" style="height: 250px;" onclick="openLightbox(this, event)">[ รูปภาพตัวอย่างการ์ดโฮโลแกรม, ฟอยล์, เอฟเฟกต์ต่างๆ ]</div>
 
-                <h2>สเปคกระดาษมาตรฐาน</h2>
+                <h2>รายละเอียดสินค้า</h2>
                 <p>กระดาษการ์ดหนา <strong>260–300 แกรม</strong><br>
                 ขนาด <strong>5.5 × 8.5 cm</strong> <span style="font-size:var(--fs-base); color:var(--text-muted);">(สอบถามขนาดพิเศษได้)</span></p>
 
@@ -6145,10 +6140,11 @@
                 <div class="opt-grid">
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-film-glossy.webp" onclick="openLightbox(this, event)">[ รูปมันวาว ]</div><span class="opt-label">มันวาว (Glossy)</span></div>
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-film-matte.webp" onclick="openLightbox(this, event)">[ รูปด้าน ]</div><span class="opt-label">ด้าน (Matte)</span></div>
-                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-holo-rainbow.webp" onclick="openLightbox(this, event)">[ รูปโฮโลรุ้ง ]</div><span class="opt-label">โฮโลแกรมรุ้ง (Rainbow Hologram)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-holo-rainbow.webp" onclick="openLightbox(this, event)">[ รูปรุ้ง ]</div><span class="opt-label">รุ้ง (Rainbow)</span></div>
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-crystal.webp" onclick="openLightbox(this, event)">[ รูปคริสตัล ]</div><span class="opt-label">คริสตัล (Crystal)</span></div>
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-star.webp" onclick="openLightbox(this, event)">[ รูปดาว ]</div><span class="opt-label">ดาว (Star)</span></div>
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-stardust.webp" onclick="openLightbox(this, event)">[ รูปละอองดาว ]</div><span class="opt-label">ละอองดาว (Stardust)</span></div>
+                    <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-snow.webp" onclick="openLightbox(this, event)">[ รูปหิมะ ]</div><span class="opt-label">หิมะ (Snow)</span></div>
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-glitter.webp" onclick="openLightbox(this, event)">[ รูปกลิตเตอร์ ]</div><span class="opt-label">กลิตเตอร์ (Glitter)</span></div>
                 </div>
 
@@ -6159,38 +6155,38 @@
                     <div class="opt-item"><div class="opt-thumb" data-image="assets/images/photocard-foil-holo.webp" onclick="openLightbox(this, event)">[ รูปฟอยล์โฮโล ]</div><span class="opt-label">โฮโลแกรม</span></div>
                 </div>
 
-                <h2>ตารางราคา (ขายเป็นชุด: 1 ชุด = 10 ใบ)</h2>
+                <h2>ตารางราคา (รับจำนวนคู่ เริ่มที่ 2 ใบ)</h2>
 
                 <div class="table-responsive pc-table-wrap">
                     <table>
-                        <tbody><tr><th>ประเภท</th><th>รายละเอียด</th><th>ราคา/ใบ</th><th>ราคา/ชุด (10 ใบ)</th></tr>
-                        <tr><td style="font-weight:600;">แบบปกติ</td><td>พิมพ์ 1 ด้าน (ไม่เคลือบฟิล์มเย็น)</td><td>6฿</td><td><span class="price-highlight">60฿</span></td></tr>
+                        <tbody><tr><th>ประเภท</th><th>รายละเอียด</th><th>ราคา/ใบ</th><th>เริ่มต้น 2 ใบ</th></tr>
+                        <tr><td style="font-weight:600;">แบบปกติ</td><td>พิมพ์ 1 ด้าน (ไม่เคลือบฟิล์มเย็น)</td><td>6฿</td><td><span class="price-highlight">12฿</span></td></tr>
                         <tr style="background:#f9fafe;"><td rowspan="4" style="font-weight:600;">เคลือบฟิล์ม</td>
-                            <td>พิมพ์ 1 ด้าน + เคลือบ 1 ด้าน</td><td>8฿</td><td><span class="price-highlight">80฿</span></td></tr>
-                        <tr style="background:#f9fafe;"><td>พิมพ์ 2 ด้าน (ไม่เคลือบ)</td><td>10฿</td><td><span class="price-highlight">100฿</span></td></tr>
-                        <tr style="background:#f9fafe;"><td>พิมพ์ 2 ด้าน + เคลือบ 1 ด้าน</td><td>12฿</td><td><span class="price-highlight">120฿</span></td></tr>
-                        <tr style="background:#f9fafe;"><td>พิมพ์ 2 ด้าน + เคลือบ 2 ด้าน</td><td>14฿</td><td><span class="price-highlight">140฿</span></td></tr>
+                            <td>พิมพ์ 1 ด้าน + เคลือบ 1 ด้าน</td><td>8฿</td><td><span class="price-highlight">16฿</span></td></tr>
+                        <tr style="background:#f9fafe;"><td>พิมพ์ 2 ด้าน (ไม่เคลือบ)</td><td>10฿</td><td><span class="price-highlight">20฿</span></td></tr>
+                        <tr style="background:#f9fafe;"><td>พิมพ์ 2 ด้าน + เคลือบ 1 ด้าน</td><td>12฿</td><td><span class="price-highlight">24฿</span></td></tr>
+                        <tr style="background:#f9fafe;"><td>พิมพ์ 2 ด้าน + เคลือบ 2 ด้าน</td><td>14฿</td><td><span class="price-highlight">28฿</span></td></tr>
                         <tr><td rowspan="3" style="font-weight:600;">เคลือบฟอยล์</td>
-                            <td>พิมพ์ 1 ด้าน + ฟอยล์ 1 ด้าน</td><td>16฿</td><td><span class="price-highlight">160฿</span></td></tr>
-                        <tr><td>พิมพ์ 2 ด้าน + ฟอยล์ 1 ด้าน</td><td>18฿</td><td><span class="price-highlight">180฿</span></td></tr>
-                        <tr><td>พิมพ์ 2 ด้าน + ฟอยล์ 2 ด้าน</td><td>20฿</td><td><span class="price-highlight">200฿</span></td></tr>
+                            <td>พิมพ์ 1 ด้าน + ฟอยล์ 1 ด้าน</td><td>16฿</td><td><span class="price-highlight">32฿</span></td></tr>
+                        <tr><td>พิมพ์ 2 ด้าน + ฟอยล์ 1 ด้าน</td><td>18฿</td><td><span class="price-highlight">36฿</span></td></tr>
+                        <tr><td>พิมพ์ 2 ด้าน + ฟอยล์ 2 ด้าน</td><td>20฿</td><td><span class="price-highlight">40฿</span></td></tr>
                     </tbody></table>
                 </div>
 
                 <div class="pc-cards">
                     <div class="pc-card"><div class="pc-type">แบบปกติ</div>
                         <div class="pc-row"><span>พิมพ์ 1 ด้าน</span><span>6฿/ใบ</span></div>
-                        <div class="pc-row"><span>ราคา/ชุด 10 ใบ</span><span class="price-highlight">60฿</span></div></div>
+                        <div class="pc-row"><span>เริ่มต้น 2 ใบ</span><span class="price-highlight">12฿</span></div></div>
                     <div class="pc-card"><div class="pc-type">เคลือบฟิล์ม</div>
-                        <div class="pc-row"><span>1 ด้าน + เคลือบ 1 ด้าน</span><span>8฿ · <span class="price-highlight">80฿</span></span></div>
-                        <div class="pc-row"><span>2 ด้าน (ไม่เคลือบ)</span><span>10฿ · <span class="price-highlight">100฿</span></span></div>
-                        <div class="pc-row"><span>2 ด้าน + เคลือบ 1 ด้าน</span><span>12฿ · <span class="price-highlight">120฿</span></span></div>
-                        <div class="pc-row"><span>2 ด้าน + เคลือบ 2 ด้าน</span><span>14฿ · <span class="price-highlight">140฿</span></span></div></div>
+                        <div class="pc-row"><span>1 ด้าน + เคลือบ 1 ด้าน</span><span>8฿/ใบ · <span class="price-highlight">16฿/2 ใบ</span></span></div>
+                        <div class="pc-row"><span>2 ด้าน (ไม่เคลือบ)</span><span>10฿/ใบ · <span class="price-highlight">20฿/2 ใบ</span></span></div>
+                        <div class="pc-row"><span>2 ด้าน + เคลือบ 1 ด้าน</span><span>12฿/ใบ · <span class="price-highlight">24฿/2 ใบ</span></span></div>
+                        <div class="pc-row"><span>2 ด้าน + เคลือบ 2 ด้าน</span><span>14฿/ใบ · <span class="price-highlight">28฿/2 ใบ</span></span></div></div>
                     <div class="pc-card"><div class="pc-type">เคลือบฟอยล์</div>
-                        <div class="pc-row"><span>1 ด้าน + ฟอยล์ 1 ด้าน</span><span>16฿ · <span class="price-highlight">160฿</span></span></div>
-                        <div class="pc-row"><span>2 ด้าน + ฟอยล์ 1 ด้าน</span><span>18฿ · <span class="price-highlight">180฿</span></span></div>
-                        <div class="pc-row"><span>2 ด้าน + ฟอยล์ 2 ด้าน</span><span>20฿ · <span class="price-highlight">200฿</span></span></div></div>
-                    <p style="font-size:var(--fs-sm); color:var(--text-muted); margin-top:8px;">* ราคา/ใบ · ราคา/ชุด 10 ใบ</p>
+                        <div class="pc-row"><span>1 ด้าน + ฟอยล์ 1 ด้าน</span><span>16฿/ใบ · <span class="price-highlight">32฿/2 ใบ</span></span></div>
+                        <div class="pc-row"><span>2 ด้าน + ฟอยล์ 1 ด้าน</span><span>18฿/ใบ · <span class="price-highlight">36฿/2 ใบ</span></span></div>
+                        <div class="pc-row"><span>2 ด้าน + ฟอยล์ 2 ด้าน</span><span>20฿/ใบ · <span class="price-highlight">40฿/2 ใบ</span></span></div></div>
+                    <p style="font-size:var(--fs-sm); color:var(--text-muted); margin-top:8px;">* รับจำนวนคู่ 2, 4, 6, 8… ใบ</p>
                 </div>
 
             </div>
@@ -6216,8 +6212,8 @@
                     </div>
                     <div class="pc-card namecard-price-panel">
                         <div class="pc-type">เคลือบฟิล์มเสริม</div>
-                        <div class="pc-row"><span>เคลือบ 1 ด้าน</span><span><strong class="price-highlight">+20฿</strong></span></div>
-                        <div class="pc-row"><span>เคลือบ 2 ด้าน</span><span><strong class="price-highlight">+40฿</strong></span></div>
+                        <div class="pc-row"><span>เคลือบ 1 ด้าน</span><span><strong class="price-highlight">+30฿</strong></span></div>
+                        <div class="pc-row"><span>เคลือบ 2 ด้าน</span><span><strong class="price-highlight">+60฿</strong></span></div>
                         <p class="namecard-addon-note">ใช้ฟิล์มชนิดเดียวกับ Photo Card · เลือกชนิดฟิล์มได้</p>
                     </div>
                 </div>
@@ -6286,7 +6282,7 @@
             <h1 class="page-title bilingual-title"><span class="title-en">Acrylic Keychain</span><span class="title-th">พวงกุญแจอะคริลิค</span></h1>
             <div class="content-box">
                 <div class="img-placeholder" data-image="assets/images/keychain-main.webp" style="height: 200px;" onclick="openLightbox(this, event)">[ รูปพวงกุญแจอะคริลิค ]</div>
-                <h2>รายละเอียดและราคา</h2>
+                <h2>รายละเอียดสินค้า</h2>
                 <p>พวงกุญแจอะคริลิค 10 รูปทรง เลือกแบบและขนาดได้ เหมาะสำหรับทำของสะสม ของแถม หรือของขวัญ</p>
                 <ul><li>ทุกแบบ ราคาเดียว: <span class="price-highlight">อันละ 15 บาท</span></li></ul>
 
@@ -6688,7 +6684,7 @@
                     </a>
 
 
-                    <a href="mailto:contact@ccc-craft.com" class="contact-card mail">
+                    <a href="mailto:contact.ccc.craft@gmail.com" class="contact-card mail">
                         <div class="contact-card-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" role="img" focusable="false">
                                 <rect x="3.5" y="6" width="17" height="12" rx="2.5" fill="none" stroke="#a794e6" stroke-width="1.8"></rect>
@@ -6697,7 +6693,7 @@
                         </div>
                         <div class="contact-card-content">
                             <span class="contact-card-title">อีเมล</span>
-                            <span class="contact-card-desc">contact@ccc-craft.com</span>
+                            <span class="contact-card-desc">contact.ccc.craft@gmail.com</span>
                         </div>
                         <div class="contact-card-arrow">›</div>
                     </a>
@@ -6735,7 +6731,6 @@
             <button type="button" onclick="showPage('photocard')" data-target-page="photocard">Photo Card | โฟโต้การ์ด</button>
             <button type="button" onclick="showPage('namecard')" data-target-page="namecard">Name Card | นามบัตร</button>
             <button type="button" onclick="showPage('pvc')" data-target-page="pvc">PVC Card | PVC การ์ด</button>
-            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Private Print | งานพิมพ์ส่วนตัว</button>
         </div>
         <div class="mobile-product-section">
             <div class="mobile-product-title">Goods</div>
@@ -6743,6 +6738,10 @@
             <button type="button" onclick="showPage('keychain')" data-target-page="keychain">Acrylic Keychain | พวงกุญแจอะคริลิค</button>
             <button type="button" onclick="showPage('minicd')" data-target-page="minicd">Mini CD Keychain | พวงกุญแจซีดีจิ๋ว</button>
             <button type="button" onclick="showPage('roundbadge')" data-target-page="roundbadge">Round Badge | เข็มกลัดวงกลม</button>
+        </div>
+        <div class="mobile-product-section">
+            <div class="mobile-product-title">Private Service</div>
+            <button type="button" class="secret-product-link" onclick="showPage('secret18')" data-target-page="secret18">Private Print | งานพิมพ์ส่วนตัว</button>
         </div>
     </div>
 
@@ -7319,7 +7318,7 @@
     const productConfigs = {
         polaroid: {
             type: 'generic', title: 'โพลารอยด์ / เชกิ', unitLabel: 'ใบ',
-            groups: [{ key: 'option', title: 'รูปแบบ', values: [{ label: 'ฟิล์มแท้ Fujifilm กรอบขาว', price: 35 }] }]
+            groups: [{ key: 'option', title: 'รูปแบบ', values: [{ label: 'โพลารอยด์ เชกิ ฟิล์มแท้ Fujifilm mini Instax', price: 40 }] }]
         },
         photoprint: {
             type: 'photoprint', title: 'พิมพ์รูป', unitLabel: 'ใบ',
@@ -7370,7 +7369,7 @@
                 { label: 'กลิตเตอร์', price: 25 }
             ] }]
         },
-        photocard: { type: 'photocard', title: 'โฟโต้การ์ด', unitLabel: 'ชุด' },
+        photocard: { type: 'photocard', title: 'โฟโต้การ์ด', unitLabel: 'ใบ' },
         namecard: { type: 'namecard', title: 'นามบัตร', unitLabel: 'ชุด' }
     };
 
@@ -7389,6 +7388,25 @@
             }
         }
 
+        // แปลงโฟโต้การ์ดแบบชุด 10 ใบจากตะกร้าเวอร์ชันก่อนหน้าให้เป็นจำนวนใบ
+        // เพื่อให้ราคาและปุ่มเพิ่มลดใช้กติกาจำนวนคู่แบบใหม่โดยไม่ทำให้ยอดเดิมเปลี่ยน
+        const normalizedProductName = String(normalized.product || '');
+        if (normalizedProductName.includes('โฟโต้การ์ด') && (normalized.unitLabel === 'ชุด' || Number(normalized.piecesPerUnit || 0) === 10)) {
+            const oldQty = Math.max(1, Number(normalized.qty || 1));
+            normalized.qty = oldQty * 10;
+            normalized.basePrice = Number(normalized.basePrice || 0) / 10;
+            if (normalized.rawBase !== undefined && normalized.rawBase !== null && normalized.rawBase !== '') {
+                normalized.rawBase = Number(normalized.rawBase || 0) / 10;
+            }
+            normalized.unitPrice = Number(normalized.unitPrice || 0) / 10;
+            normalized.unitLabel = 'ใบ';
+            normalized.piecesPerUnit = 0;
+            normalized.qtyStep = 2;
+            normalized.qtyMin = 2;
+            normalized.qtyText = `${normalized.qty} ใบ`;
+            normalized.note = 'รับจำนวนคู่ เริ่มที่ 2 ใบ';
+        }
+
         // Backward compatibility for set-based products saved before piecesPerUnit existed.
         // Without this, increasing/decreasing legacy cart quantity can keep stale copy text
         // such as "1 ชุด (10 ใบ)" even after the cart quantity changes.
@@ -7399,7 +7417,7 @@
             const qtyTextMatch = qtyText.match(/(\d+)\s*ชุด\s*\((\d+)\s*ใบ\)/);
             const unitNoteMatch = searchableText.match(/(\d+)\s*(?:รูป|ใบ)\s*\/\s*ชุด/);
 
-            if (productName.includes('โฟโต้การ์ด') || productName.includes('นามบัตร')) {
+            if (productName.includes('นามบัตร')) {
                 normalized.piecesPerUnit = 10;
             } else if (unitNoteMatch) {
                 normalized.piecesPerUnit = Number(unitNoteMatch[1]);
@@ -7541,11 +7559,11 @@
 
     const photoprintSizes = [
         { label: 'ID Photo 1', displayLabel: 'ID Photo 1 — 1 นิ้ว (2.5 × 3.5 cm)', choiceLabel: '1 นิ้ว', price: 12, unitLabel: 'ชุด', piecesPerUnit: 12, unitNote: '12 รูป/ชุด' },
-        { label: 'ID Photo 1.5', displayLabel: 'ID Photo 1.5 — 1.5 นิ้ว (3 × 4 cm)', choiceLabel: '1.5 นิ้ว', price: 12, unitLabel: 'ชุด', piecesPerUnit: 9, unitNote: '9 รูป/ชุด' },
+        { label: 'ID Photo 1.5', displayLabel: 'ID Photo 1.5 — 1.5 นิ้ว (3 × 4 cm)', choiceLabel: '1.5 นิ้ว', price: 12, unitLabel: 'ชุด', piecesPerUnit: 8, unitNote: '8 รูป/ชุด' },
         { label: 'ID Photo 2', displayLabel: 'ID Photo 2 — 2 นิ้ว (4 × 6 cm)', choiceLabel: '2 นิ้ว', price: 10, unitLabel: 'ชุด', piecesPerUnit: 4, unitNote: '4 รูป/ชุด' },
         { label: 'Mini Print 2×3', displayLabel: 'Mini Print — 2 × 3 นิ้ว', choiceLabel: '2 × 3', price: 10, unitLabel: 'ชุด', piecesPerUnit: 4, unitNote: '4 ใบ/ชุด' },
-        { label: 'Small Print 3×4', displayLabel: 'Small Print — 3 × 4 นิ้ว', choiceLabel: '3 × 4', price: 10, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
-        { label: 'Photo Booth 2×6', displayLabel: 'Photo Booth — 2 × 6 นิ้ว', choiceLabel: '2 × 6', price: 10, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
+        { label: 'Small Print 3×4', displayLabel: 'Small Print — 3 × 4 นิ้ว', choiceLabel: '3 × 4', price: 8, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
+        { label: 'Photo Booth 2×6', displayLabel: 'Photo Booth — 2 × 6 นิ้ว', choiceLabel: '2 × 6', price: 8, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
         { label: 'Post Card 4×6', displayLabel: 'Post Card — 4 × 6 นิ้ว', choiceLabel: '4 × 6', price: 8, unitLabel: 'ใบ', special: '4x6' },
         { label: 'Mini Poster A5', displayLabel: 'Mini Poster — A5', choiceLabel: 'A5', price: 30, unitLabel: 'ชุด', piecesPerUnit: 2, unitNote: '2 ใบ/ชุด' },
         { label: 'A4 Art Print', displayLabel: 'Art Print — A4', choiceLabel: 'A4', price: 30, unitLabel: 'ใบ' }
@@ -7557,10 +7575,11 @@
     ];
     const filmTypeOptions = [
         { label: 'ด้าน (Matte)', value: 'Matte' },
-        { label: 'โฮโลแกรมรุ้ง (Rainbow Hologram)', value: 'Rainbow Hologram' },
+        { label: 'รุ้ง (Rainbow)', value: 'Rainbow' },
         { label: 'ดาว (Star)', value: 'Star' },
         { label: 'ละอองดาว (Stardust)', value: 'Stardust' },
         { label: 'คริสตัล (Crystal)', value: 'Crystal' },
+        { label: 'หิมะ (Snow)', value: 'Snow' },
         { label: 'กลิตเตอร์ (Glitter)', value: 'Glitter' }
     ];
     function photoprintState(formEl) {
@@ -7617,7 +7636,7 @@
         const size = photoprintSizes[state.sizeIndex];
         const laminateChoices = [
             { label: 'ไม่เคลือบ' },
-            { label: 'เคลือบฟิล์ม' }
+            { label: 'เคลือบฟิล์ม (Film)' }
         ];
         let html = '';
         html += `<div class="order-choice-section photoprint-size-choice"><div class="order-choice-title">ขนาด</div>${choiceButtons('sizeIndex', photoprintSizes.map(v => ({ label: v.choiceLabel || v.displayLabel || v.label })), state.sizeIndex)}</div>`;
@@ -7661,15 +7680,15 @@
         return { ...defaultState, ...JSON.parse(formEl.dataset.orderState || '{}') };
     }
     function photocardPrice(state) {
-        // โฟโต้การ์ดขายเป็นชุด: 1 ชุด = 10 ใบ
-        if (state.workType === 'normal') return state.printSides === '2' ? 100 : 60;
+        // ราคาโฟโต้การ์ดต่อใบ โดยรับจำนวนคู่เริ่มที่ 2 ใบ
+        if (state.workType === 'normal') return state.printSides === '2' ? 10 : 6;
         if (state.workType === 'film') {
-            if (state.printSides === '1') return 80;
-            return state.filmSides === '2' ? 140 : 120;
+            if (state.printSides === '1') return 8;
+            return state.filmSides === '2' ? 14 : 12;
         }
         if (state.workType === 'foil') {
-            if (state.printSides === '1') return 160;
-            return state.effectSides === '2' ? 200 : 180;
+            if (state.printSides === '1') return 16;
+            return state.effectSides === '2' ? 20 : 18;
         }
         return 0;
     }
@@ -7685,18 +7704,22 @@
         if (state.workType === 'film') detail += ` เคลือบ ${state.filmSides} ด้าน (${shortLabel(state.filmType)})`;
         if (state.workType === 'foil') detail += ` ฟอยล์ ${state.effectSides} ด้าน (${state.effect})`;
         const qty = getQty(formEl);
+        const isEvenQty = qty >= 2 && qty % 2 === 0;
         return {
             product: 'โฟโต้การ์ด',
             detail: detail,
             qty,
-            qtyText: `${qty} ชุด (${qty * 10} ใบ)`,
-            piecesPerUnit: 10,
-            unitLabel: 'ชุด',
+            qtyText: `${qty} ใบ`,
+            piecesPerUnit: 0,
+            unitLabel: 'ใบ',
             unitPrice: photocardPrice(state),
             basePrice: photocardPrice(state),
+            qtyStep: 2,
+            qtyMin: 2,
             special: '',
             requiresQuote: false,
-            note: '1 ชุด = 10 ใบ'
+            note: 'รับจำนวนคู่ เริ่มที่ 2 ใบ',
+            validationMessage: isEvenQty ? '' : 'โฟโต้การ์ดรับจำนวนคู่ กรุณากรอก 2, 4, 6, 8… ใบ'
         };
     }
 
@@ -7818,7 +7841,7 @@
     }
     function namecardPrice(state) {
         const base = state.printSides === '2' ? 80 : 50;
-        const filmAdd = state.coating === '2' ? 40 : state.coating === '1' ? 20 : 0;
+        const filmAdd = state.coating === '2' ? 60 : state.coating === '1' ? 30 : 0;
         return base + filmAdd;
     }
     function namecardSummary(formEl) {
@@ -7885,7 +7908,7 @@
                     <button type="button" class="qty-btn" data-qty-plus>+</button>
                 </div>
             </div>
-            <p class="order-small-note">1 ชุด = 10 ใบ • เคลือบ 1 ด้าน +20 บาท/ชุด, เคลือบ 2 ด้าน +40 บาท/ชุด</p>
+            <p class="order-small-note">1 ชุด = 10 ใบ • เคลือบ 1 ด้าน +30 บาท/ชุด, เคลือบ 2 ด้าน +60 บาท/ชุด</p>
             <div class="order-current-summary" data-current-summary></div>
             <div class="order-add-actions">
                 <button type="button" class="add-order-btn" data-add-cart>เพิ่มลงรายการ</button>
@@ -7971,6 +7994,11 @@
         const summary = currentSummary(formEl, pageId);
         const summaryBox = formEl.querySelector('[data-current-summary]');
         if (summaryBox) summaryBox.innerHTML = buildSummaryHtml(summary);
+        const evenQtyHint = formEl.querySelector('[data-even-qty-hint]');
+        if (evenQtyHint) {
+            evenQtyHint.textContent = summary.validationMessage || '';
+            evenQtyHint.hidden = !summary.validationMessage;
+        }
         if (pageId === 'photocard') renderPhotocardDynamicChoices(formEl);
         if (pageId === 'namecard') renderNamecardDynamicChoices(formEl);
         if (pageId === 'photoprint') renderPhotoprintDynamicChoices(formEl);
@@ -8004,6 +8032,8 @@
             unitLabel: summary.unitLabel,
             qtyText: summary.qtyText || '',
             piecesPerUnit: summary.piecesPerUnit || 0,
+            qtyStep: summary.qtyStep || 1,
+            qtyMin: summary.qtyMin || 1,
             requiresQuote: summary.requiresQuote,
             note: summary.note || ''
         };
@@ -8080,14 +8110,15 @@
             </div>
             <div data-photocard-dynamic></div>
             <div class="order-choice-section">
-                <div class="order-choice-title">จำนวน (ชุด)</div>
+                <div class="order-choice-title">จำนวน (ใบ)</div>
                 <div class="qty-control">
                     <button type="button" class="qty-btn" data-qty-minus>-</button>
-                    <input type="number" inputmode="numeric" min="1" step="1" value="1" data-cart-qty>
+                    <input type="number" inputmode="numeric" min="2" step="2" value="2" data-cart-qty>
                     <button type="button" class="qty-btn" data-qty-plus>+</button>
                 </div>
             </div>
-            <p class="order-small-note">1 ชุด = 10 ใบ หากต้องการ 50 ใบ ให้ใส่ 5 ชุด</p>
+            <p class="order-small-note">รับจำนวนคู่ 2, 4, 6, 8… ใบ • ปุ่ม + / − จะเพิ่มลดครั้งละ 2 ใบ</p>
+            <p class="order-small-note" data-even-qty-hint hidden style="color:var(--accent); font-weight:600;"></p>
             <div class="order-current-summary" data-current-summary></div>
             <div class="order-add-actions">
                 <button type="button" class="add-order-btn" data-add-cart>เพิ่มลงรายการ</button>
@@ -8155,12 +8186,16 @@
                 }
                 if (event.target.matches('[data-qty-minus]')) {
                     const input = box.querySelector('[data-cart-qty]');
-                    input.value = Math.max(1, normalizeQtyValue(input.value) - 1);
+                    const step = pageId === 'photocard' ? 2 : 1;
+                    const min = pageId === 'photocard' ? 2 : 1;
+                    input.value = Math.max(min, normalizeQtyValue(input.value) - step);
                     updateAddForm(box, pageId);
                 }
                 if (event.target.matches('[data-qty-plus]')) {
                     const input = box.querySelector('[data-cart-qty]');
-                    input.value = Math.max(1, normalizeQtyValue(input.value) + 1);
+                    const step = pageId === 'photocard' ? 2 : 1;
+                    const min = pageId === 'photocard' ? 2 : 1;
+                    input.value = Math.max(min, normalizeQtyValue(input.value) + step);
                     updateAddForm(box, pageId);
                 }
                 if (event.target.matches('[data-add-cart]')) addCartItem(pageId, box);
@@ -8199,6 +8234,8 @@
         } else {
             container.innerHTML = cart.map((item, index) => {
                 const unitPriceText = isQuote(item) ? 'ร้านยืนยันราคาอีกครั้ง' : `${formatBaht(calculateUnitPrice(item))}/${item.unitLabel || 'ชิ้น'}`;
+                const qtyStep = Math.max(1, Number(item.qtyStep || 1));
+                const qtyMin = Math.max(1, Number(item.qtyMin || 1));
                 return `<div class="cart-item">
                     <div class="cart-item-head">
                         <div>
@@ -8212,7 +8249,7 @@
                     <div class="cart-item-foot">
                         <div class="qty-control">
                             <button type="button" class="qty-btn" data-cart-minus="${item.id}">-</button>
-                            <input type="number" inputmode="numeric" min="1" step="1" value="${item.qty}" data-cart-update="${item.id}">
+                            <input type="number" inputmode="numeric" min="${qtyMin}" step="${qtyStep}" value="${item.qty}" data-cart-update="${item.id}">
                             <button type="button" class="qty-btn" data-cart-plus="${item.id}">+</button>
                         </div>
                         <div class="cart-price">รวม ${lineTotalOrQuote(item)}</div>
@@ -8817,7 +8854,14 @@
             }
             if (event.target.matches('[data-cart-update]')) {
                 const id = event.target.dataset.cartUpdate;
-                const cleanQty = normalizeQtyValue(event.target.value);
+                const currentItem = getCart().find(item => item.id === id);
+                const step = Math.max(1, Number(currentItem && currentItem.qtyStep || 1));
+                const min = Math.max(1, Number(currentItem && currentItem.qtyMin || 1));
+                let cleanQty = Math.max(min, normalizeQtyValue(event.target.value));
+                if (step === 2 && cleanQty % 2 !== 0) {
+                    cleanQty += 1;
+                    showCartToast(`ปรับจำนวนโฟโต้การ์ดเป็น ${cleanQty} ใบ (รับจำนวนคู่)`);
+                }
                 event.target.value = cleanQty;
                 const cart = getCart().map(item => item.id === id ? { ...item, qty: cleanQty } : item);
                 saveCart(cart);
@@ -8841,10 +8885,20 @@
             if (removeId) saveCart(getCart().filter(item => item.id !== removeId));
 
             const minusId = event.target.dataset.cartMinus;
-            if (minusId) saveCart(getCart().map(item => item.id === minusId ? { ...item, qty: Math.max(1, Number(item.qty || 1) - 1) } : item));
+            if (minusId) saveCart(getCart().map(item => {
+                if (item.id !== minusId) return item;
+                const step = Math.max(1, Number(item.qtyStep || 1));
+                const min = Math.max(1, Number(item.qtyMin || 1));
+                return { ...item, qty: Math.max(min, Number(item.qty || min) - step) };
+            }));
 
             const plusId = event.target.dataset.cartPlus;
-            if (plusId) saveCart(getCart().map(item => item.id === plusId ? { ...item, qty: Math.max(1, Number(item.qty || 1) + 1) } : item));
+            if (plusId) saveCart(getCart().map(item => {
+                if (item.id !== plusId) return item;
+                const step = Math.max(1, Number(item.qtyStep || 1));
+                const min = Math.max(1, Number(item.qtyMin || 1));
+                return { ...item, qty: Math.max(min, Number(item.qty || min) + step) };
+            }));
         });
 
         const clearBtn = document.getElementById('clearCartBtn');
