@@ -7080,7 +7080,7 @@
 
                 const probe = new Image();
                 probe.onload = function() {
-                    previewTarget.style.backgroundImage = 'url("' + imageSrc + '")';
+                    previewTarget.style.setProperty('background-image', 'url("' + imageSrc + '")', 'important');
                     previewTarget.classList.add('media-ready');
                     node.classList.add('media-ready');
                 };
