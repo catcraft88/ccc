@@ -7096,6 +7096,16 @@
                     previewTarget.style.setProperty('background-size', 'contain', 'important');
                     previewTarget.style.setProperty('background-position', 'center', 'important');
                     previewTarget.style.setProperty('background-repeat', 'no-repeat', 'important');
+
+                    Array.from(previewTarget.childNodes).forEach(function(child) {
+                        if (
+                            child.nodeType === Node.TEXT_NODE ||
+                            (child.nodeType === Node.ELEMENT_NODE && child.tagName === 'BR')
+                        ) {
+                            child.remove();
+                        }
+                    });
+
                     previewTarget.classList.add('media-ready');
                     node.classList.add('media-ready');
                 };
